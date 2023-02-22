@@ -32,8 +32,70 @@ void proxy_server::run(){
     }
     
 }
-void * proxy_server::handle(void *curr_session){
+void * proxy_server::handle(void *curr_session_){
+    curr_session * curr_session_ = (session*)curr_session_;
+    int requie_fd = curr_session->fd;
+    char buffer[MAX_BUFFER_SIZE];
     
+    //Receive request from client.
+    int req_len = recv(requie_fd, & buffer, sizeof(buffer), 0);
+    if (req_len <= 0)
+    {
+        pthread_mutex_lock(&mutex);
+        log_file <<"("<< curr_session_->id << ")"<<": ERROR Get request failed." << std::endl;
+        pthread_mutex_lock(&mutex);
+        return NULL;
+    }
+    
+    //Chunck the buffer to actual size
+    std::string request_msg = std::string(buffer, req_len);
+    
+    //Generate request object
+    request* req = new request(request_msg);
+    if (req->host == "")
+    {
+        pthread_mutex_lock(&mutex);
+        log_file <<"("<< curr_session_->id << ")"<<
+        ": WARNING Request format wrong, no request has been processed." 
+        << std::endl;
+        pthread_mutex_lock(&mutex);
+        return NULL;
+    }
+    
+    //Connect to remote server.
+    remote_fd = build_sender(req->host.c_str(), req->port.c_str());
+    if (remote_fd < 0)
+    {
+        pthread_mutex_lock(&mutex);
+        log_file <<"("<< curr_session_->id << ")"<<
+        ": ERROR Can not connect to remote server, check request format." 
+        << std::endl;
+        pthread_mutex_lock(&mutex);
+    }
+
+    //record request in log file
+    if (req->method == "GET")
+    {
+        /* check cache */
+        // record in log bla bla
+        //Forward request to remote server
+        send(remote_fd, request_msg, request_msg.length(), 0);
+        //receive msg merge together
+        //generate response object
+        // if is chunk
+        // else
+        
+    }
+    else if (req->method == "CONNECT")
+    {
+        /* code */
+    }
+    else if(req->method == "POST")
+
+    //receive response from remote server
+
+    
+    delete req;
     return NULL;
 }
 

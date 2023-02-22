@@ -1,5 +1,17 @@
 #ifndef REQUEST_H
 #define REQUEST_H
+#include<string>
+#include"parser_util.h"
+
+class request
+{
+private:
+    std::string host;
+    std::string port;
+    std::string method;
+public:
+    request(std::string msg);
+}
 
 #endif
 // std::istringstream iss(request);

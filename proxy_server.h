@@ -34,7 +34,7 @@ private:
 public:
     proxy_server(const char * port) : lisn_port(port), connection_lisn_fd(-1), id_counter(1){}
     void run();
-    void * handle(void* info);
+    static void * handle(void* info);
     int create_session(int listener_fd, std::string * ip);
 };
 

@@ -1,4 +1,15 @@
+#include<map>
+#include<string>
+#include <sstream>
+#include <iostream>
+#include <cstring>
+#include <cstdio>
+#include <cstdlib>
 
+std::string get_first_line(const std::string&message){
+    std::vector<std::string> lines = split(message, "\r\n");
+    return lines[0];
+}
 
 std::map<std::string, std::string> parse_headers(const std::string& message) {
     std::map<std::string, std::string> headers;
