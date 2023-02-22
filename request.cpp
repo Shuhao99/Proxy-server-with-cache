@@ -1,8 +1,8 @@
 #include "request.h"
 
-request(std::string msg){
+request::request(std::string msg){
     std::map<std::string, std::string> info = parse_headers(msg);
-    
+    this->msg = msg;
     //get method
     std::vector<std::string> first_line_tokens = split(get_first_line(msg), " ");
     this->method = first_line_tokens[0];
@@ -15,7 +15,7 @@ request(std::string msg){
         this->method = "";
         return;
     }
-    std::string host_line = info["Host"]
+    std::string host_line = info["Host"];
     if (host_line.find(":") == std::string::npos) {
         this->host = host_line;
         //default prot 80 for http/https

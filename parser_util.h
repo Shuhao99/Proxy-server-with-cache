@@ -5,6 +5,7 @@
 #include <cstring>
 #include <cstdio>
 #include <cstdlib>
+#include <vector>
 
 std::string get_first_line(const std::string&message){
     std::vector<std::string> lines = split(message, "\r\n");

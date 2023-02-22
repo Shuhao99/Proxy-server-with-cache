@@ -25,17 +25,42 @@
 
 class proxy_server {
 private:
-    const int MAX_BUFFER_SIZE = 65536;
+    static const int MAX_BUFFER_SIZE = 65536;
+    static const int BUFFER_SIZE = 4096;
     const char * lisn_port;
     int connection_lisn_fd;
     int id_counter;
     std::vector<session> session_queue;
+    //cache
+    
 
 public:
-    proxy_server(const char * port) : lisn_port(port), connection_lisn_fd(-1), id_counter(1){}
+    proxy_server(const char * port) : 
+        lisn_port(port), 
+        connection_lisn_fd(-1), 
+        id_counter(1)
+    {
+        //build cache
+    }
+    //~proxy_server() //delete cache
+    
     void run();
+    
     static void * handle(void* info);
-    int create_session(int listener_fd, std::string * ip);
+    
+    int create_session(const int &listener_fd, std::string * ip);
+    
+    static response* get_response(
+        const int &remote_fd, 
+        const std::string &request_msg
+    );
+    
+    static void forward_chunked_data(
+        const int &remote_fd, 
+        const int &client_fd,
+        const std::string &first_pkg,
+        const session * curr_session
+    );
 };
 
 #endif
