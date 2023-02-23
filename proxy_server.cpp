@@ -127,8 +127,13 @@ void * proxy_server::handle(void *curr_session_){
                 << "Requesting \"" << req->get_fist_line() << "\" from " << req->get_host() << std::endl;
         pthread_mutex_unlock(&mutex);
         
-        // handleConnect(client_fd, server_fd, client_info->getID());
-
+        if(make_connection(require_fd, remote_fd, curr_session)){
+            pthread_mutex_lock(&mutex);
+            log_file << curr_session->id << ": "
+                    << "ERROR connection failed." << std::endl;
+            pthread_mutex_unlock(&mutex);
+            return NULL;
+        }
         
         pthread_mutex_lock(&mutex);
         log_file << curr_session->id << ": Tunnel closed" << std::endl;
@@ -138,7 +143,8 @@ void * proxy_server::handle(void *curr_session_){
     else if(req->get_method() == "POST"){
 
     }
-  
+    close(remote_fd);
+    close(require_fd);
     delete req;
     return NULL;
 }
@@ -198,8 +204,7 @@ void proxy_server::forward_chunked_data(
     const int &remote_fd,
     const int &client_fd,
     const std::string &first_pkg,
-    const session * curr_session
-)
+    const session * curr_session)
 {
     //TODO: record in log data
     pthread_mutex_lock(&mutex);
@@ -219,10 +224,48 @@ void proxy_server::forward_chunked_data(
     
 }
 
-void make_connect(
+int proxy_server::make_connection(
     const int &client_fd, 
     const int &server_fd, 
     session* curr_session)
 {
+    // if error return 1 else return 0
+    std::string ok = "HTTP/1.1 200 OK\r\n\r\n";
+    send(client_fd, ok.c_str(), ok.length() + 1, 0);
+    pthread_mutex_lock(&mutex);
+    log_file << curr_session->id << ": Responding \"HTTP/1.1 200 OK\"" << std::endl;
+    pthread_mutex_unlock(&mutex);
 
+    fd_set read_fds;
+    int nfds = std::max(server_fd, client_fd);
+    int nread = 0;
+    char buffer[MAX_BUFFER_SIZE];
+
+    while (1) {
+        FD_ZERO(&read_fds);
+        // add the fds in read set
+        FD_SET(server_fd, &read_fds);
+        FD_SET(client_fd, &read_fds);
+        // check who is ready to read
+        if(select(nfds + 1, &read_fds, NULL, NULL, NULL) == -1){
+            return 1;
+        }
+
+        if (FD_ISSET(client_fd, &read_fds)) {
+            nread = recv(client_fd, buffer, sizeof(buffer), 0);
+            if (nread <= 0) {
+                break;
+            }
+            send(server_fd, buffer, nread, 0);
+        }
+
+        if (FD_ISSET(server_fd, &read_fds)) {
+            nread = recv(server_fd, buffer, sizeof(buffer), 0);
+            if (nread <= 0) {
+                break;
+            }
+            send(client_fd, buffer, nread, 0);
+        } 
+    }
+    return 0;
 }

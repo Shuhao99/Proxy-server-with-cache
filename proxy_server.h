@@ -52,15 +52,18 @@ public:
     
     static response* get_response(
         const int &remote_fd, 
-        const std::string &request_msg
-    );
+        const std::string &request_msg);
     
     static void forward_chunked_data(
         const int &remote_fd, 
         const int &client_fd,
         const std::string &first_pkg,
-        const session * curr_session
-    );
+        const session * curr_session);
+
+    static void make_connect(
+    const int &client_fd, 
+    const int &server_fd, 
+    session* curr_session);
 };
 
 #endif
