@@ -1,0 +1,76 @@
+1: Requesting "CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1" from content-signature-2.cdn.mozilla.net
+1: Responding "HTTP/1.1 200 OK"
+2: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+2: Responding "HTTP/1.1 200 OK"
+3: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
+3: Responding "HTTP/1.1 200 OK"
+14: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+14: Responding "HTTP/1.1 200 OK"
+25: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
+25: Responding "HTTP/1.1 200 OK"
+0: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+0: Responding "HTTP/1.1 200 OK"
+34: Requesting "CONNECT fonts.googleapis.com:443 HTTP/1.1" from fonts.googleapis.com
+34: Responding "HTTP/1.1 200 OK"
+0: Requesting "CONNECT cdn.datatables.net:443 HTTP/1.1" from cdn.datatables.net
+0: Responding "HTTP/1.1 200 OK"
+36: Requesting "CONNECT cdn.datatables.net:443 HTTP/1.1" from cdn.datatables.net
+36: Responding "HTTP/1.1 200 OK"
+0: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
+0: Responding "HTTP/1.1 200 OK"
+0: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
+0: Responding "HTTP/1.1 200 OK"
+33: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
+32: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
+32: Responding "HTTP/1.1 200 OK"
+33: Responding "HTTP/1.1 200 OK"
+0: Requesting "CONNECT maxcdn.bootstrapcdn.com:443 HTTP/1.1" from maxcdn.bootstrapcdn.com
+0: Responding "HTTP/1.1 200 OK"
+35: Requesting "CONNECT code.jquery.com:443 HTTP/1.1" from code.jquery.com
+35: Responding "HTTP/1.1 200 OK"
+37: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
+37: Responding "HTTP/1.1 200 OK"
+36: Tunnel closed
+41: Requesting "CONNECT www.gstatic.com:443 HTTP/1.1" from www.gstatic.com
+41: Responding "HTTP/1.1 200 OK"
+43: Requesting "CONNECT fonts.gstatic.com:443 HTTP/1.1" from fonts.gstatic.com
+43: Responding "HTTP/1.1 200 OK"
+45: Requesting "CONNECT maxcdn.bootstrapcdn.com:443 HTTP/1.1" from maxcdn.bootstrapcdn.com
+45: Responding "HTTP/1.1 200 OK"
+44: Requesting "CONNECT fonts.gstatic.com:443 HTTP/1.1" from fonts.gstatic.com
+44: Responding "HTTP/1.1 200 OK"
+42: Requesting "CONNECT www.googletagmanager.com:443 HTTP/1.1" from www.googletagmanager.com
+42: Responding "HTTP/1.1 200 OK"
+46: Requesting "CONNECT fonts.gstatic.com:443 HTTP/1.1" from fonts.gstatic.com
+46: Responding "HTTP/1.1 200 OK"
+43: Tunnel closed
+44: Tunnel closed
+48: Requesting "CONNECT www.gstatic.com:443 HTTP/1.1" from www.gstatic.com
+48: Responding "HTTP/1.1 200 OK"
+49: Requesting "CONNECT www.gstatic.com:443 HTTP/1.1" from www.gstatic.com
+49: Responding "HTTP/1.1 200 OK"
+50: Requesting "CONNECT www.google-analytics.com:443 HTTP/1.1" from www.google-analytics.com
+50: Responding "HTTP/1.1 200 OK"
+49: Tunnel closed
+51: Requesting "CONNECT stats.g.doubleclick.net:443 HTTP/1.1" from stats.g.doubleclick.net
+51: Responding "HTTP/1.1 200 OK"
+32: Tunnel closed
+33: Tunnel closed
+0: Tunnel closed
+37: Tunnel closed
+444581456: Tunnel closed
+0: Tunnel closed
+53: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
+53: Responding "HTTP/1.1 200 OK"
+53: Tunnel closed
+54: Requesting "CONNECT aus5.mozilla.org:443 HTTP/1.1" from aus5.mozilla.org
+54: Responding "HTTP/1.1 200 OK"
+55: Requesting "CONNECT www.httpwatch.com:443 HTTP/1.1" from www.httpwatch.com
+55: Responding "HTTP/1.1 200 OK"
+56: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+56: Responding "HTTP/1.1 200 OK"
+56: Tunnel closed
+57: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+57: Responding "HTTP/1.1 200 OK"
+0: Tunnel closed
+(60): ERROR Can not connect to remote server, check request format.

@@ -60,7 +60,7 @@ public:
         const std::string &first_pkg,
         const session * curr_session);
 
-    static void make_connect(
+    static int make_connection(
     const int &client_fd, 
     const int &server_fd, 
     session* curr_session);

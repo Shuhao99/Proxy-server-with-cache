@@ -106,6 +106,9 @@ void * proxy_server::handle(void *curr_session_){
         else if (resp->get_header().count("Content-Length")) 
         {   
             // update cache
+            //TEST
+            std::cout << resp->get_msg().substr(0, 200)<< std::endl;
+            //TEST END
             send(require_fd, resp->get_msg().c_str(), resp->get_length(), 0);
             
         }
