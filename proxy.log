@@ -1,76 +1,451 @@
-1: Requesting "CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1" from content-signature-2.cdn.mozilla.net
+1: "CONNECT location.services.mozilla.com:443 HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:11 2023
+
+1: Requesting "CONNECT location.services.mozilla.com:443 HTTP/1.1" from location.services.mozilla.com
 1: Responding "HTTP/1.1 200 OK"
-2: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
-2: Responding "HTTP/1.1 200 OK"
-3: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
+2: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:11 2023
+
+3: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:11 2023
+
+3: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+3: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+3: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
 3: Responding "HTTP/1.1 200 OK"
-14: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
-14: Responding "HTTP/1.1 200 OK"
-25: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
+2: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+4: "CONNECT contile.services.mozilla.com:443 HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:11 2023
+
+2: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+2: Responding "HTTP/1.1 200 OK
+4: Requesting "CONNECT contile.services.mozilla.com:443 HTTP/1.1" from contile.services.mozilla.com
+4: Responding "HTTP/1.1 200 OK"
+5: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:11 2023
+
+5: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+5: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+5: Responding "HTTP/1.1 200 OK
+7: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:11 2023
+
+6: "CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:11 2023
+
+8: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:11 2023
+
+6: Requesting "CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1" from content-signature-2.cdn.mozilla.net
+6: Responding "HTTP/1.1 200 OK"
+7: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+7: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+7: Responding "HTTP/1.1 200 OK
+8: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+8: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+8: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
+8: Responding "HTTP/1.1 200 OK"
+9: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:11 2023
+
+9: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+9: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+9: Responding "HTTP/1.1 200 OK
+10: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:11 2023
+
+10: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+10: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+10: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
+10: Responding "HTTP/1.1 200 OK"
+11: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:11 2023
+
+11: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+11: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+11: Responding "HTTP/1.1 200 OK
+12: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:11 2023
+
+12: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+13: "CONNECT firefox.settings.services.mozilla.com:443 HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:11 2023
+
+12: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+12: Responding "HTTP/1.1 200 OK
+13: Requesting "CONNECT firefox.settings.services.mozilla.com:443 HTTP/1.1" from firefox.settings.services.mozilla.com
+13: Responding "HTTP/1.1 200 OK"
+14: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+14: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+14: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+14: Responding "HTTP/1.1 200 OK
+15: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+16: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+17: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+15: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+15: Responding "HTTP/1.1 200 OK"
+16: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+16: Responding "HTTP/1.1 200 OK"
+17: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+18: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+18: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+18: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+17: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+17: Responding "HTTP/1.1 200 OK
+18: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
+18: Responding "HTTP/1.1 200 OK"
+19: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+19: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+20: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+21: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+19: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+19: Responding "HTTP/1.1 200 OK
+21: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+21: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+20: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+20: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+23: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+22: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+24: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+21: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
+20: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
+20: Responding "HTTP/1.1 200 OK"
+21: Responding "HTTP/1.1 200 OK"
+24: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+23: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
+23: Responding "HTTP/1.1 200 OK"
+22: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
+22: Responding "HTTP/1.1 200 OK"
+24: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+24: Responding "HTTP/1.1 200 OK
+25: "CONNECT push.services.mozilla.com:443 HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+26: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+26: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+27: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+27: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+27: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+26: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+26: Responding "HTTP/1.1 200 OK
+28: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+27: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
+27: Responding "HTTP/1.1 200 OK"
+28: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+28: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+28: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
+28: Responding "HTTP/1.1 200 OK"
+29: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+25: Requesting "CONNECT push.services.mozilla.com:443 HTTP/1.1" from push.services.mozilla.com
 25: Responding "HTTP/1.1 200 OK"
-0: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
-0: Responding "HTTP/1.1 200 OK"
-34: Requesting "CONNECT fonts.googleapis.com:443 HTTP/1.1" from fonts.googleapis.com
-34: Responding "HTTP/1.1 200 OK"
-0: Requesting "CONNECT cdn.datatables.net:443 HTTP/1.1" from cdn.datatables.net
-0: Responding "HTTP/1.1 200 OK"
-36: Requesting "CONNECT cdn.datatables.net:443 HTTP/1.1" from cdn.datatables.net
-36: Responding "HTTP/1.1 200 OK"
-0: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
-0: Responding "HTTP/1.1 200 OK"
-0: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
-0: Responding "HTTP/1.1 200 OK"
-33: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
-32: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
+29: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+29: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+29: Responding "HTTP/1.1 200 OK
+30: "CONNECT aus5.mozilla.org:443 HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+31: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+23: Tunnel closed
+32: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+31: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+32: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
 32: Responding "HTTP/1.1 200 OK"
-33: Responding "HTTP/1.1 200 OK"
-0: Requesting "CONNECT maxcdn.bootstrapcdn.com:443 HTTP/1.1" from maxcdn.bootstrapcdn.com
-0: Responding "HTTP/1.1 200 OK"
-35: Requesting "CONNECT code.jquery.com:443 HTTP/1.1" from code.jquery.com
-35: Responding "HTTP/1.1 200 OK"
-37: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
-37: Responding "HTTP/1.1 200 OK"
-36: Tunnel closed
-41: Requesting "CONNECT www.gstatic.com:443 HTTP/1.1" from www.gstatic.com
-41: Responding "HTTP/1.1 200 OK"
-43: Requesting "CONNECT fonts.gstatic.com:443 HTTP/1.1" from fonts.gstatic.com
-43: Responding "HTTP/1.1 200 OK"
-45: Requesting "CONNECT maxcdn.bootstrapcdn.com:443 HTTP/1.1" from maxcdn.bootstrapcdn.com
-45: Responding "HTTP/1.1 200 OK"
-44: Requesting "CONNECT fonts.gstatic.com:443 HTTP/1.1" from fonts.gstatic.com
-44: Responding "HTTP/1.1 200 OK"
-42: Requesting "CONNECT www.googletagmanager.com:443 HTTP/1.1" from www.googletagmanager.com
-42: Responding "HTTP/1.1 200 OK"
-46: Requesting "CONNECT fonts.gstatic.com:443 HTTP/1.1" from fonts.gstatic.com
-46: Responding "HTTP/1.1 200 OK"
-43: Tunnel closed
-44: Tunnel closed
-48: Requesting "CONNECT www.gstatic.com:443 HTTP/1.1" from www.gstatic.com
-48: Responding "HTTP/1.1 200 OK"
-49: Requesting "CONNECT www.gstatic.com:443 HTTP/1.1" from www.gstatic.com
-49: Responding "HTTP/1.1 200 OK"
-50: Requesting "CONNECT www.google-analytics.com:443 HTTP/1.1" from www.google-analytics.com
-50: Responding "HTTP/1.1 200 OK"
-49: Tunnel closed
-51: Requesting "CONNECT stats.g.doubleclick.net:443 HTTP/1.1" from stats.g.doubleclick.net
-51: Responding "HTTP/1.1 200 OK"
+31: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+31: Responding "HTTP/1.1 200 OK
+15: Tunnel closed
+33: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+30: Requesting "CONNECT aus5.mozilla.org:443 HTTP/1.1" from aus5.mozilla.org
+30: Responding "HTTP/1.1 200 OK"
+33: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+34: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+34: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+34: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+33: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+33: Responding "HTTP/1.1 200 OK
+34: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
+34: Responding "HTTP/1.1 200 OK"
+35: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+35: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+35: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+35: Responding "HTTP/1.1 200 OK
+36: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+36: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+36: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+37: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+36: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
+36: Responding "HTTP/1.1 200 OK"
+37: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+37: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+37: Responding "HTTP/1.1 200 OK
+38: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+38: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+38: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+38: Responding "HTTP/1.1 200 OK
+39: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+39: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+40: "CONNECT firefox.settings.services.mozilla.com:443 HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+39: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+39: Responding "HTTP/1.1 200 OK
+40: Requesting "CONNECT firefox.settings.services.mozilla.com:443 HTTP/1.1" from firefox.settings.services.mozilla.com
+40: Responding "HTTP/1.1 200 OK"
+41: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+41: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+41: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+41: Responding "HTTP/1.1 200 OK
+42: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+42: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+42: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+42: Responding "HTTP/1.1 200 OK
+43: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:12 2023
+
+43: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+43: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+43: Responding "HTTP/1.1 200 OK
+44: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:13 2023
+
+44: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+44: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+44: Responding "HTTP/1.1 200 OK
+45: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:13 2023
+
+45: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+45: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+45: Responding "HTTP/1.1 200 OK
+46: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:13 2023
+
+46: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+46: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+46: Responding "HTTP/1.1 200 OK
+47: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:13 2023
+
+47: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+47: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+47: Responding "HTTP/1.1 200 OK
+48: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:13 2023
+
+48: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+48: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+48: Responding "HTTP/1.1 200 OK
+49: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:13 2023
+
+49: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+49: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+49: Responding "HTTP/1.1 200 OK
+50: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:13 2023
+
+50: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+50: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+50: Responding "HTTP/1.1 200 OK
+51: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:13 2023
+
+51: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+51: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+51: Responding "HTTP/1.1 200 OK
+52: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:13 2023
+
+52: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+52: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+52: Responding "HTTP/1.1 200 OK
+53: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:13 2023
+
+53: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+53: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+53: Responding "HTTP/1.1 200 OK
+54: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:13 2023
+
+54: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+54: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+54: Responding "HTTP/1.1 200 OK
+55: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:13 2023
+
+55: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+55: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+55: Responding "HTTP/1.1 200 OK
+56: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:13 2023
+
+56: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+56: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+56: Responding "HTTP/1.1 200 OK
+57: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:13 2023
+
+57: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+57: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+57: Responding "HTTP/1.1 200 OK
+58: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:13 2023
+
+58: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+58: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+58: Responding "HTTP/1.1 200 OK
+59: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:14 2023
+
+59: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+59: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+59: Responding "HTTP/1.1 200 OK
+60: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:14 2023
+
+60: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+60: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+60: Responding "HTTP/1.1 200 OK
+61: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:14 2023
+
+61: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+61: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+61: Responding "HTTP/1.1 200 OK
+62: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:14 2023
+
+62: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+62: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+62: Responding "HTTP/1.1 200 OK
+63: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:14 2023
+
+63: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+63: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+63: Responding "HTTP/1.1 200 OK
+64: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:14 2023
+
+64: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+64: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+64: Responding "HTTP/1.1 200 OK
+65: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:14 2023
+
+65: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+65: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+65: Responding "HTTP/1.1 200 OK
+66: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:14 2023
+
+66: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+66: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+66: Responding "HTTP/1.1 200 OK
+67: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:14 2023
+
+67: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+68: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:14 2023
+
+67: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+67: Responding "HTTP/1.1 200 OK
+69: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:14 2023
+
+68: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+69: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+68: Received "HTTP/1.1 200 OK" from httpbin.org
+68: Responding "HTTP/1.1 200 OK
+69: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+69: Responding "HTTP/1.1 200 OK
+70: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:14 2023
+
+70: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+70: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+70: Responding "HTTP/1.1 200 OK
+71: "GET http://httpbin.org/favicon.ico HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:14 2023
+
+72: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:14 2023
+
+71: Requesting "GET http://httpbin.org/favicon.ico HTTP/1.1" from httpbin.org
+72: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+71: Received "HTTP/1.1 404 NOT FOUND" from httpbin.org
+71: Responding "HTTP/1.1 404 NOT FOUND"
+72: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+72: Responding "HTTP/1.1 200 OK
+73: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:14 2023
+
+73: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+73: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+73: Responding "HTTP/1.1 200 OK
+74: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:14 2023
+
+74: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+74: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+74: Responding "HTTP/1.1 200 OK
+75: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:15 2023
+
+75: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+75: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+75: Responding "HTTP/1.1 200 OK
+76: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:15 2023
+
+76: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+76: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+76: Responding "HTTP/1.1 200 OK
+77: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:15 2023
+
+77: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+77: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+77: Responding "HTTP/1.1 200 OK
+78: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:15 2023
+
+78: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+78: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+78: Responding "HTTP/1.1 200 OK
+79: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:15 2023
+
+79: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+79: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+79: Responding "HTTP/1.1 200 OK
+80: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:15 2023
+
+80: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+80: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+80: Responding "HTTP/1.1 200 OK
+81: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:15 2023
+
+81: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+81: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+81: Responding "HTTP/1.1 200 OK
+82: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:15 2023
+
+82: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+82: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+82: Responding "HTTP/1.1 200 OK
+83: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:15 2023
+
+83: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+83: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+83: Responding "HTTP/1.1 200 OK
+84: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:15 2023
+
+84: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+84: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+84: Responding "HTTP/1.1 200 OK
+85: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:17 2023
+
+85: Requesting "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from safebrowsing.googleapis.com
+85: Responding "HTTP/1.1 200 OK"
+86: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:17 2023
+
+86: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+86: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+86: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
+86: Responding "HTTP/1.1 200 OK"
+85: Tunnel closed
+87: "GET http://httpbin.org/forms/post HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:33 2023
+
+87: Requesting "GET http://httpbin.org/forms/post HTTP/1.1" from httpbin.org
+87: Received "HTTP/1.1 200 OK" from httpbin.org
+87: Responding "HTTP/1.1 200 OK
+88: "GET http://httpbin.org/favicon.ico HTTP/1.1" from 173.95.91.83 @ Thu Feb 23 23:15:34 2023
+
+88: Requesting "GET http://httpbin.org/favicon.ico HTTP/1.1" from httpbin.org
+88: Received "HTTP/1.1 404 NOT FOUND" from httpbin.org
+88: Responding "HTTP/1.1 404 NOT FOUND"
+0: Tunnel closed
+0: Tunnel closed
 32: Tunnel closed
-33: Tunnel closed
 0: Tunnel closed
-37: Tunnel closed
-444581456: Tunnel closed
+16: Tunnel closed
+13: Tunnel closed
+6: Tunnel closed
+4: Tunnel closed
 0: Tunnel closed
-53: Requesting "CONNECT www.artsci.utoronto.ca:443 HTTP/1.1" from www.artsci.utoronto.ca
-53: Responding "HTTP/1.1 200 OK"
-53: Tunnel closed
-54: Requesting "CONNECT aus5.mozilla.org:443 HTTP/1.1" from aus5.mozilla.org
-54: Responding "HTTP/1.1 200 OK"
-55: Requesting "CONNECT www.httpwatch.com:443 HTTP/1.1" from www.httpwatch.com
-55: Responding "HTTP/1.1 200 OK"
-56: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
-56: Responding "HTTP/1.1 200 OK"
-56: Tunnel closed
-57: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
-57: Responding "HTTP/1.1 200 OK"
-0: Tunnel closed
-(60): ERROR Can not connect to remote server, check request format.
+-1619040688: Tunnel closed

@@ -51,7 +51,6 @@ int build_listener(const char * port){
         return -1;
     } //if
 
-    cout << "Waiting for connection on port " << port << endl;
     freeaddrinfo(host_info_list);
 
     return socket_fd;

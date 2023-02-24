@@ -2,6 +2,7 @@
 
 request::request(std::string msg){
     std::map<std::string, std::string> info = parse_headers(msg);
+    this->header = info;
     this->msg = msg;
     //get method
     std::vector<std::string> first_line_tokens = split(get_first_line(msg), " ");

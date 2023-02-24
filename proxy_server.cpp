@@ -9,7 +9,7 @@ void proxy_server::run(){
     {
         pthread_mutex_lock(&mutex);
         log_file << "(no id): ERROR proxy server initialize failed." << std::endl;
-        pthread_mutex_lock(&mutex);
+        pthread_mutex_unlock(&mutex);
     }
 
     while (true)
@@ -20,7 +20,7 @@ void proxy_server::run(){
         {
             pthread_mutex_lock(&mutex);
             log_file << "(no id): ERROR proxy server connect failed." << std::endl;
-            pthread_mutex_lock(&mutex);
+            pthread_mutex_unlock(&mutex);
         }
         
         session temp = {id_counter, session_fd, ip};
@@ -29,6 +29,7 @@ void proxy_server::run(){
         pthread_t thread;
         pthread_create(&thread, NULL, handle, &(this->session_queue.back()));
     }
+
 }
 
 void * proxy_server::handle(void *curr_session_){
@@ -38,11 +39,19 @@ void * proxy_server::handle(void *curr_session_){
     
     //Receive request from client.
     int req_len = recv(require_fd, & buffer, sizeof(buffer), 0);
-    if (req_len <= 0)
+    if (req_len < 0)
     {
         pthread_mutex_lock(&mutex);
-        log_file <<"("<< curr_session->id << ")"<<": ERROR Get request failed." << std::endl;
+        log_file << curr_session->id <<": ERROR Get request failed." << std::endl;
+        pthread_mutex_unlock(&mutex);
+        return NULL;
+    }
+
+    if (req_len == 0)
+    {
         pthread_mutex_lock(&mutex);
+        log_file << curr_session->id <<": NOTE client close session." << std::endl;
+        pthread_mutex_unlock(&mutex);
         return NULL;
     }
     
@@ -54,22 +63,39 @@ void * proxy_server::handle(void *curr_session_){
     if (req->get_host() == "")
     {
         pthread_mutex_lock(&mutex);
-        log_file <<"("<< curr_session->id << ")"<<
+        log_file << curr_session->id <<
         ": WARNING Request format wrong, no request has been processed." 
         << std::endl;
-        pthread_mutex_lock(&mutex);
+        pthread_mutex_unlock(&mutex);
+        send_400(require_fd, curr_session);
         return NULL;
     }
     
+    //TEST
+    std::cout<<"get request: "<< req->get_fist_line() <<std::endl;
+    //get curr time string
+    time_t rawtime;
+    struct tm * timeinfo;
+		
+    time ( &rawtime );
+    timeinfo = localtime ( &rawtime );
+    const char* curr_time =  asctime (timeinfo);
+
+    //print to log
+    pthread_mutex_lock(&mutex);
+    log_file << curr_session->id <<": \"" << req->get_fist_line() << "\" from " << curr_session->ip << " @ " << curr_time << std::endl;
+    pthread_mutex_unlock(&mutex);
+
     //Connect to remote server.
     int remote_fd = build_sender(req->get_host().c_str(), req->get_port().c_str());
     if (remote_fd < 0)
     {
         pthread_mutex_lock(&mutex);
-        log_file <<"("<< curr_session->id << ")"<<
+        log_file << curr_session->id <<
         ": ERROR Can not connect to remote server, check request format." 
         << std::endl;
-        pthread_mutex_lock(&mutex);
+        pthread_mutex_unlock(&mutex);
+        send_400(require_fd, curr_session);
         return NULL;
     }
 
@@ -82,14 +108,29 @@ void * proxy_server::handle(void *curr_session_){
                 // get response
 
                 /*---------- get response start ----------*/
-        response * resp = get_response(remote_fd, request_msg);
+
+        response * resp = get_response(remote_fd, request_msg, req, curr_session);
+        
+        if (resp->get_fist_line().find("200 OK") == std::string::npos)
+        {
+            send(require_fd, resp->get_msg().c_str(), resp->get_length(), 0);
+            pthread_mutex_lock(&mutex);
+            log_file << curr_session->id <<
+            ": Responding " << "\"" << resp->get_fist_line() << "\""
+            << std::endl;
+            pthread_mutex_unlock(&mutex);
+            delete resp;
+            return NULL;
+        }
+        
         if (resp == NULL)
         {
             pthread_mutex_lock(&mutex);
-            log_file <<"("<< curr_session->id << ")"<<
-            ": ERROR Get response from remote server failed." 
+            log_file << curr_session->id <<
+            ": ERROR Can not get response from remote server." 
             << std::endl;
-            pthread_mutex_lock(&mutex);
+            pthread_mutex_unlock(&mutex);
+            delete resp;
             return NULL;
         }
         
@@ -105,11 +146,22 @@ void * proxy_server::handle(void *curr_session_){
         // if not chunked
         else if (resp->get_header().count("Content-Length")) 
         {   
-            // update cache
-            //TEST
-            std::cout << resp->get_msg().substr(0, 200)<< std::endl;
-            //TEST END
+            if(resp->get_header().count("Cache-Control") &&
+                resp->get_header()["Cache-Control"].find("public") == std::string::npos)
+            {
+                pthread_mutex_lock(&mutex);
+                log_file << curr_session->id << ": not cacheable because it is not public" << std::endl;
+                pthread_mutex_unlock(&mutex);
+            }
+            else{
+                //update cache
+            }
+
             send(require_fd, resp->get_msg().c_str(), resp->get_length(), 0);
+            
+            pthread_mutex_lock(&mutex);
+            log_file << curr_session->id << ": Responding \"" << resp->get_fist_line() << std::endl;
+            pthread_mutex_unlock(&mutex);
             
         }
                 /*---------- get response end ----------*/
@@ -144,8 +196,58 @@ void * proxy_server::handle(void *curr_session_){
     }
     
     else if(req->get_method() == "POST"){
-
+        pthread_mutex_lock(&mutex);
+        log_file << curr_session->id << ": "
+                << "Requesting \"" << req->get_fist_line() 
+                << "\" from " << req->get_host() << std::endl;
+        pthread_mutex_unlock(&mutex);
+        //handlePOST(client_fd, server_fd, 
+        //req_msg, len, client_info->getID(), host);
+        if (req->get_header().count("Content-Length"))
+        {
+            //forward the post request
+            send(remote_fd, req->get_msg().c_str(), req->get_msg().length() + 1, 0);
+            //get response
+            response * resp = get_response(remote_fd, req->get_msg(), req, curr_session);
+            
+            if (resp == NULL)
+            {
+                pthread_mutex_lock(&mutex);
+                log_file << curr_session->id <<
+                ": ERROR Met trouble when submitting your post." 
+                << std::endl;
+                pthread_mutex_unlock(&mutex);
+                delete resp;
+                return NULL;
+            }
+            //send back response
+            send(require_fd, resp->get_msg().c_str(), resp->get_length(), 0);
+            
+            pthread_mutex_lock(&mutex);
+            log_file << curr_session->id << ": Responding " << "\""
+                     << resp->get_fist_line() << "\"" << std::endl;
+            pthread_mutex_unlock(&mutex);
+            
+            delete resp;
+        }
+        else{
+            pthread_mutex_lock(&mutex);
+            log_file << curr_session->id << ": "
+                    << "WARNING receive a blank POST request." << std::endl;
+            pthread_mutex_unlock(&mutex);
+        }  
     }
+    
+    else {
+        // Can only handle GET POST CONNECT
+        pthread_mutex_lock(&mutex);
+        log_file << curr_session->id <<
+        ": ERROR Can only handle GET POST CONNECT." 
+        << std::endl;
+        pthread_mutex_unlock(&mutex);
+        send_400(require_fd, curr_session);
+    }
+    
     close(remote_fd);
     close(require_fd);
     delete req;
@@ -171,8 +273,15 @@ int proxy_server::create_session(const int &listener_fd, std::string * ip){
 */
 response* proxy_server::get_response(
     const int &remote_fd, 
-    const std::string &request_msg)
+    const std::string &request_msg,
+    request * req,
+    const session* curr_session)
 {
+    pthread_mutex_lock(&mutex);
+    log_file << curr_session->id << ": "
+            << "Requesting \"" << req->get_fist_line() << "\" from " << req->get_host() << std::endl;
+    pthread_mutex_unlock(&mutex);
+
     //Forward request to remote server
     send(remote_fd, request_msg.c_str(), request_msg.length(), 0);
     //receive first part of message
@@ -186,9 +295,6 @@ response* proxy_server::get_response(
     std::string resp_msg(buffer, rec_len);
     //parse and generate response
     response* resp = new response(resp_msg);
-    if(resp->get_brok_flag()){
-        return NULL;
-    }
 
     int actual_len = resp->get_length();
     //get the whole msg package
@@ -200,6 +306,12 @@ response* proxy_server::get_response(
             resp->msg_push_back(temp);
         }
     }
+
+    pthread_mutex_lock(&mutex);
+    log_file << curr_session->id << ": "
+            << "Received \"" << resp->get_fist_line() << "\" from " << req->get_host() << std::endl;
+    pthread_mutex_unlock(&mutex);
+
     return resp;
 }
 
@@ -215,6 +327,11 @@ void proxy_server::forward_chunked_data(
     pthread_mutex_unlock(&mutex);
     //send first package
     send(remote_fd, first_pkg.c_str(), first_pkg.length(), 0);
+
+    pthread_mutex_lock(&mutex);
+    log_file << curr_session->id << ": Responding \"" << get_first_line(first_pkg) << std::endl;
+    pthread_mutex_unlock(&mutex);
+
     char buffer[BUFFER_SIZE];
     int len = 1;
     while (len)
@@ -230,7 +347,8 @@ void proxy_server::forward_chunked_data(
 int proxy_server::make_connection(
     const int &client_fd, 
     const int &server_fd, 
-    session* curr_session)
+    const session* curr_session
+)
 {
     // if error return 1 else return 0
     std::string ok = "HTTP/1.1 200 OK\r\n\r\n";
@@ -271,4 +389,53 @@ int proxy_server::make_connection(
         } 
     }
     return 0;
+}
+
+std::string proxy_server::validate(
+    const int & remote_fd, 
+    response * resp, 
+    const std::string &request)
+{
+    size_t pos = request.find_last_not_of(" \t\r\n");
+    std::string new_req = request.substr(0, pos+1);
+    
+    if (resp->get_header().count("ETag")) {
+        std::string new_req = new_req + "\r\nIf-None-Match: " + resp->get_header()["ETag"];
+    }
+    
+    if (resp->get_header().count("Last-Modified")) {
+        std::string new_req = new_req + "\r\nIf-Modified-Since: " + resp->get_header()["Last-Modified"];
+    }
+    new_req = new_req + "\r\n\r\n";
+    //send to remote server
+    send(remote_fd, new_req.c_str(), new_req.length() + 1, 0);
+
+    char buffer[MAX_BUFFER_SIZE];
+    int resp_len = recv(remote_fd, &buffer, sizeof(buffer), 0);
+    if (resp_len <= 0) {
+        std::cout << "ERROR when revalidate" << std::endl;
+        return NULL;
+    }
+    std::string new_resp(buffer, resp_len);
+    return new_resp;
+}
+
+// When error send 502 bad gateway
+void proxy_server::send_502(const int & client_fd, session * curr_session)
+{
+    const char * bad502 = "HTTP/1.1 502 Bad Gateway\r\n Connection: close\r\n";
+    send(client_fd, bad502, sizeof(bad502), 0);
+    pthread_mutex_lock(&mutex);
+    log_file << curr_session->id << ": Responding \"HTTP/1.1 502 Bad Gateway\"" << std::endl;
+    pthread_mutex_unlock(&mutex);
+}
+
+// When receive malformed request send 400 bad request
+void proxy_server::send_400(const int & client_fd, session * curr_session)
+{
+    const char * bad400 = "HTTP/1.1 400 Bad Request\r\n Connection: close\r\n";
+    send(client_fd, bad400, sizeof(bad400), 0);
+    pthread_mutex_lock(&mutex);
+    log_file << curr_session->id << ": Responding \"HTTP/1.1 502 Bad Request\"" << std::endl;
+    pthread_mutex_unlock(&mutex);
 }

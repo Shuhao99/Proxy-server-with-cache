@@ -1,7 +1,6 @@
 #include "response.h"
 
 response::response(std::string msg){
-    this->broken = false;
     this->header = parse_headers(msg);
     this->msg = msg;
     //int length; >0 for actual length, -1 for chunk msg
@@ -13,12 +12,12 @@ response::response(std::string msg){
         }
         catch(const std::exception& e)
         {
-            this->broken = true;
-            std::cerr << "ERROR the http response is broken" << '\n';
+            this->length = INT_MAX;
+            std::cerr << "ERROR the http response is not chunked and has no length" << '\n';
         } 
     }
     else{
-        this->length = -1;
+        this->length = INT_MAX;
     }
     return;
 }

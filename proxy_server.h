@@ -17,11 +17,13 @@
 #include <netdb.h>
 #include <sys/socket.h>
 #include <unistd.h>
+#include <time.h> 
 
 #include "request.h"
 #include "response.h"
 #include "session.h"
 #include "socket.h"
+#include "parser_util.h"
 
 class proxy_server {
 private:
@@ -45,14 +47,18 @@ public:
     //~proxy_server() //delete cache
     
     void run();
+    int create_session(const int &listener_fd, std::string * ip);
     
     static void * handle(void* info);
     
-    int create_session(const int &listener_fd, std::string * ip);
+    static void send_502(const int & client_fd, session * curr_session);
+    static void send_400(const int & client_fd, session * curr_session);
     
     static response* get_response(
         const int &remote_fd, 
-        const std::string &request_msg);
+        const std::string &request_msg,
+        request * req,
+        const session* curr_session);
     
     static void forward_chunked_data(
         const int &remote_fd, 
@@ -61,9 +67,14 @@ public:
         const session * curr_session);
 
     static int make_connection(
-    const int &client_fd, 
-    const int &server_fd, 
-    session* curr_session);
+        const int &client_fd, 
+        const int &server_fd, 
+        const session* curr_session);
+    
+    static std::string validate(
+        const int & remote_fd, 
+        response * resp, 
+        const std::string &input);
 };
 
 #endif
