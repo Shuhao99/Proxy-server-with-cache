@@ -24,26 +24,23 @@
 #include "session.h"
 #include "socket.h"
 #include "parser_util.h"
+#include "cache.hpp"
 
 class proxy_server {
 private:
     static const int MAX_BUFFER_SIZE = 65536;
     static const int BUFFER_SIZE = 4096;
+    static Cache cache;
     const char * lisn_port;
     int connection_lisn_fd;
     int id_counter;
     std::vector<session> session_queue;
-    //cache
-    
 
 public:
     proxy_server(const char * port) : 
         lisn_port(port), 
         connection_lisn_fd(-1), 
-        id_counter(1)
-    {
-        //build cache
-    }
+        id_counter(1){}
     //~proxy_server() //delete cache
     
     void run();
@@ -53,6 +50,11 @@ public:
     
     static void send_502(const int & client_fd, session * curr_session);
     static void send_400(const int & client_fd, session * curr_session);
+
+    static void update_cache(
+        const session * curr_session,
+        request * req,
+        response * resp);
     
     static response* get_response(
         const int &remote_fd, 
@@ -71,10 +73,12 @@ public:
         const int &server_fd, 
         const session* curr_session);
     
-    static std::string validate(
+    static response* validate(
         const int & remote_fd, 
         response * resp, 
-        const std::string &input);
+        request *req,
+        const std::string &input,
+        const session* curr_session);
 };
 
 #endif

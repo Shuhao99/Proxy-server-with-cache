@@ -1,5 +1,5 @@
-#ifndef COMMON_H
-#define COMMON_H
+#ifndef TIME_UTIL_H
+#define TIME_UTIL_H
 #include <chrono>
 #include <ctime>
 #include <iomanip>

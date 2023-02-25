@@ -17,7 +17,7 @@ public:
     std::string get_host() { return this->host; }
     std::string get_port() { return this->port; }
     std::string get_method() { return this->method; }
-    std::string get_msg() { return this->msg; }
+    std::string get_msg() const { return this->msg; }
     std::map<std::string, std::string> get_header() { return this->header; }
     std::string get_fist_line() { return get_first_line(this->msg); }
 };

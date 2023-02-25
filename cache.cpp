@@ -20,10 +20,10 @@ std::string getMaxage(const std::string &cacheControl) {
 }
 bool isMaxageStale(
     const std::string &maxAgeString,
-    const std::unordered_map<std::string, std::string> &headers) {
+    const std::map<std::string, std::string> &headers) {
   int maxAge = std::stoi(maxAgeString);
 
-  std::unordered_map<std::string, std::string>::const_iterator dateIterator =
+  std::map<std::string, std::string>::const_iterator dateIterator =
       headers.find("Date");
   if (dateIterator != headers.end()) {
     auto date = stringToDate(dateIterator->second);
@@ -34,11 +34,11 @@ bool isMaxageStale(
   return true;
 }
 bool Cache::checkIfStale(const response &res) {
-  std::unordered_map<std::string, std::string> headers = res.getHeaders();
-  std::unordered_map<std::string, std::string>::const_iterator
+  std::map<std::string, std::string> headers = res.get_header();
+  std::map<std::string, std::string>::const_iterator
       cacheControlIterator = headers.find("Cache-Control");
   if (cacheControlIterator == headers.end()) {
-    std::unordered_map<std::string, std::string>::const_iterator
+    std::map<std::string, std::string>::const_iterator
         expiresIterator = headers.find("Expires");
     if (expiresIterator != headers.end()) {
       auto expires = stringToDate(expiresIterator->second);
@@ -61,7 +61,7 @@ cacheResponse Cache::revalidate(const response &res) {
   cacheResponse cacheRes(true, false);
   cacheRes.res = res;
 
-  std::unordered_map<std::string, std::string> headers = res.getHeaders();
+  std::map<std::string, std::string> headers = res.get_header();
   auto etagIterator = headers.find("ETag");
   if (etagIterator == headers.end()) {
     auto lastModifiedIterator = headers.find("Last-Modified");
@@ -110,7 +110,7 @@ void Cache::updateCache(const request &req, response res) {
 }
 
 bool Cache::checkCachable(const response &res) {
-  std::unordered_map<std::string, std::string> headers = res.getHeaders();
+  std::map<std::string, std::string> headers = res.get_header();
   auto iter = headers.find("Cache-Control");
   if (iter != headers.end()) {
     if (iter->second.find("no-store") != std::string::npos ||
@@ -120,6 +120,17 @@ bool Cache::checkCachable(const response &res) {
   }
   return true;
 }
+// bool Cache::checkCachableStr(const response &res) {
+//   std::map<std::string, std::string> headers = res.get_header();
+//   auto iter = headers.find("Cache-Control");
+//   if (iter != headers.end()) {
+//     if (iter->second.find("no-store") != std::string::npos ||
+//         iter->second.find("private") != std::string::npos) {
+//       return false;
+//     }
+//   }
+//   return true;
+// }
 
 cacheResponse Cache::getResponseFromCache(const request &req) {
   if (checkInCache(req)) {
@@ -143,7 +154,7 @@ std::string Cache::getExpires(const request &req) {
   }
   auto iter = cache.find(getHashKey(req));
   response res = iter->second.first;
-  auto headers = res.getHeaders();
+  auto headers = res.get_header();
   auto expireIter = headers.find("Expires");
   if (expireIter != headers.end()) {
     return expireIter->second;
@@ -154,7 +165,7 @@ std::string Cache::getExpires(const request &req) {
     std::string maxAgeString = getMaxage(cacheControl);
     if (!maxAgeString.empty()) {
       int maxAge = std::stoi(maxAgeString);
-      std::unordered_map<std::string, std::string>::const_iterator
+      std::map<std::string, std::string>::const_iterator
           dateIterator = headers.find("Date");
       if (dateIterator != headers.end()) {
         auto date = stringToDate(dateIterator->second);

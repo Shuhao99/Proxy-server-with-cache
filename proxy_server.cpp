@@ -1,5 +1,6 @@
 #include "proxy_server.h"
 
+Cache proxy_server::cache = Cache();
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 std::ofstream log_file("proxy.log");
 
@@ -104,75 +105,126 @@ void * proxy_server::handle(void *curr_session_){
     {
         /* check cache */
         //check cache -> cache_response
-            //if !is_find
-                // get response
-
-                /*---------- get response start ----------*/
-
-        response * resp = get_response(remote_fd, request_msg, req, curr_session);
+        cacheResponse cache_response = cache.getResponseFromCache(*req);
         
-        if (resp->get_fist_line().find("200 OK") == std::string::npos)
-        {
-            send(require_fd, resp->get_msg().c_str(), resp->get_length(), 0);
-            pthread_mutex_lock(&mutex);
-            log_file << curr_session->id <<
-            ": Responding " << "\"" << resp->get_fist_line() << "\""
-            << std::endl;
-            pthread_mutex_unlock(&mutex);
-            delete resp;
-            return NULL;
-        }
-        
-        if (resp == NULL)
+        //Find response from cache 
+        if (!cache_response.isFind)
         {
             pthread_mutex_lock(&mutex);
-            log_file << curr_session->id <<
-            ": ERROR Can not get response from remote server." 
-            << std::endl;
+            log_file << curr_session->id << ": not in cache" << std::endl;
             pthread_mutex_unlock(&mutex);
-            delete resp;
-            return NULL;
-        }
+            response * resp = get_response(remote_fd, request_msg, req, curr_session);
         
-        //if chunked
-        if (
-            resp->get_header().count("Transfer-Encoding") 
-            && resp->get_header()["Transfer-Encoding"] == "chunked"
-        )
-        {
-            forward_chunked_data(remote_fd, require_fd, resp->get_msg(), curr_session);
-        }
-
-        // if not chunked
-        else if (resp->get_header().count("Content-Length")) 
-        {   
-            if(resp->get_header().count("Cache-Control") &&
-                resp->get_header()["Cache-Control"].find("public") == std::string::npos)
+            if (resp->get_fist_line().find("200 OK") == std::string::npos)
+            {
+                send(require_fd, resp->get_msg().c_str(), resp->get_length(), 0);
+                pthread_mutex_lock(&mutex);
+                log_file << curr_session->id <<
+                ": Responding " << "\"" << resp->get_fist_line() << "\""
+                << std::endl;
+                pthread_mutex_unlock(&mutex);
+                delete resp;
+                return NULL;
+            }
+            
+            if (resp == NULL)
             {
                 pthread_mutex_lock(&mutex);
-                log_file << curr_session->id << ": not cacheable because it is not public" << std::endl;
+                log_file << curr_session->id <<
+                ": ERROR Can not get response from remote server." 
+                << std::endl;
+                pthread_mutex_unlock(&mutex);
+                delete resp;
+                return NULL;
+            }
+            
+            //if chunked
+            if (
+                resp->get_header().count("Transfer-Encoding") 
+                && resp->get_header()["Transfer-Encoding"] == "chunked"
+            ){
+                forward_chunked_data(remote_fd, require_fd, resp->get_msg(), curr_session);
+            }
+
+            // if not chunked
+            else if (resp->get_header().count("Content-Length")) 
+            {   
+                //Check if it is cacheble
+                if(resp->get_header().count("Cache-Control"))
+                {
+                    if (resp->get_header()["Cache-Control"].find("no-store") != std::string::npos)
+                    {
+                        pthread_mutex_lock(&mutex);
+                        log_file << curr_session->id << ": not cacheable because it said no-store" << std::endl;
+                        pthread_mutex_unlock(&mutex);
+                    }
+                    else if (resp->get_header()["Cache-Control"].find("private") != std::string::npos)
+                    {
+                        pthread_mutex_lock(&mutex);
+                        log_file << curr_session->id << ": not cacheable because it is private" << std::endl;
+                        pthread_mutex_unlock(&mutex);
+                    }
+                    else{
+                        update_cache(curr_session, req, resp);
+                    }
+                }
+                else{
+                    //TODO: abstract to a function, find if is revalidation or expired
+                    update_cache(curr_session, req, resp);
+                }
+
+                send(require_fd, resp->get_msg().c_str(), resp->get_length(), 0);
+                
+                pthread_mutex_lock(&mutex);
+                log_file << curr_session->id << ": Responding \"" << resp->get_fist_line() << std::endl;
+                pthread_mutex_unlock(&mutex);
+                
+            }
+            delete resp;
+        }
+        
+        if (cache_response.isFind && !cache_response.isFresh){
+            //re-validate
+            response * validate_resp = validate(remote_fd, &cache_response.res, req, request_msg, curr_session);
+            // is valid send back
+            if (validate_resp->get_fist_line().find("200") != std::string::npos)
+            {
+                update_cache(curr_session, req, validate_resp);
+
+                send(require_fd, validate_resp->get_msg().c_str(), validate_resp->get_length(), 0);
+
+                pthread_mutex_lock(&mutex);
+                log_file << curr_session->id << ": Responding \"" << validate_resp->get_fist_line() << std::endl;
                 pthread_mutex_unlock(&mutex);
             }
-            else{
-                //update cache
-            }
-
-            send(require_fd, resp->get_msg().c_str(), resp->get_length(), 0);
-            
-            pthread_mutex_lock(&mutex);
-            log_file << curr_session->id << ": Responding \"" << resp->get_fist_line() << std::endl;
-            pthread_mutex_unlock(&mutex);
-            
-        }
-                /*---------- get response end ----------*/
-
-            //if is_find && !is_fresh 
-                // revalidate
-            //if is_find && is_fresh 
-                // foward back
+            else if (validate_resp->get_fist_line().find("304") != std::string::npos){
                 
-        // record in log bla bla 
-        delete resp;
+                send(require_fd, cache_response.res.get_msg().c_str(), cache_response.res.get_length(), 0);
+                
+                pthread_mutex_lock(&mutex);
+                log_file << curr_session->id << ": Responding \"" 
+                << cache_response.res.get_fist_line() << std::endl;
+                pthread_mutex_unlock(&mutex);
+
+            }
+            else{
+                std::cout<<"Error when revalidate.";
+            }
+            delete validate_resp;
+        }
+
+        if (cache_response.isFind && cache_response.isFresh){
+            // foward back
+            pthread_mutex_lock(&mutex);
+            log_file << curr_session->id << ": in cache, valid" << std::endl;
+            pthread_mutex_unlock(&mutex);
+
+            send(require_fd, cache_response.res.get_msg().c_str(), cache_response.res.get_length(), 0);
+                
+            pthread_mutex_lock(&mutex);
+            log_file << curr_session->id << ": Responding \"" << cache_response.res.get_fist_line() << std::endl;
+            pthread_mutex_unlock(&mutex);
+        } 
     }
     
     else if (req->get_method() == "CONNECT")
@@ -252,6 +304,30 @@ void * proxy_server::handle(void *curr_session_){
     close(require_fd);
     delete req;
     return NULL;
+}
+
+void proxy_server::update_cache(
+    const session * curr_session,
+    request * req,
+    response * resp
+)
+{
+    cache.updateCache(*req, *resp);
+    std::string expire_time = cache.getExpires(*req);
+    if (expire_time.empty())
+    {
+        pthread_mutex_lock(&mutex);
+        log_file << curr_session->id << 
+        ": cached, but requires re-validation" << std::endl;
+        pthread_mutex_unlock(&mutex);
+    }
+    else
+    {
+        pthread_mutex_lock(&mutex);
+        log_file << curr_session->id << ": cached, expires at " 
+        << expire_time <<std::endl;
+        pthread_mutex_unlock(&mutex);
+    }
 }
 
 int proxy_server::create_session(const int &listener_fd, std::string * ip){
@@ -391,32 +467,46 @@ int proxy_server::make_connection(
     return 0;
 }
 
-std::string proxy_server::validate(
+response* proxy_server::validate(
     const int & remote_fd, 
     response * resp, 
-    const std::string &request)
+    request *req,
+    const std::string &request_,
+    const session* curr_session
+)
 {
-    size_t pos = request.find_last_not_of(" \t\r\n");
-    std::string new_req = request.substr(0, pos+1);
+    std::string expire_time = cache.getExpires(*req);
+    if (expire_time.empty())
+    {
+        pthread_mutex_lock(&mutex);
+        log_file << curr_session->id << 
+        ": in cache, requires validation" << std::endl;
+        pthread_mutex_unlock(&mutex);
+    }
+    else
+    {
+        pthread_mutex_lock(&mutex);
+        log_file << curr_session->id << ": in cache, but expired at " 
+        << expire_time <<std::endl;
+        pthread_mutex_unlock(&mutex);
+    }
+
+    size_t pos = request_.find_last_not_of(" \t\r\n");
+    std::string new_req_msg = request_.substr(0, pos+1);
     
     if (resp->get_header().count("ETag")) {
-        std::string new_req = new_req + "\r\nIf-None-Match: " + resp->get_header()["ETag"];
+        std::string new_req_msg = new_req_msg + "\r\nIf-None-Match: " + resp->get_header()["ETag"];
     }
     
     if (resp->get_header().count("Last-Modified")) {
-        std::string new_req = new_req + "\r\nIf-Modified-Since: " + resp->get_header()["Last-Modified"];
+        std::string new_req_msg = new_req_msg + "\r\nIf-Modified-Since: " + resp->get_header()["Last-Modified"];
     }
-    new_req = new_req + "\r\n\r\n";
-    //send to remote server
-    send(remote_fd, new_req.c_str(), new_req.length() + 1, 0);
+    new_req_msg = new_req_msg + "\r\n\r\n";
+    //get response frome remote server
+    request* new_req = new request(new_req_msg);
 
-    char buffer[MAX_BUFFER_SIZE];
-    int resp_len = recv(remote_fd, &buffer, sizeof(buffer), 0);
-    if (resp_len <= 0) {
-        std::cout << "ERROR when revalidate" << std::endl;
-        return NULL;
-    }
-    std::string new_resp(buffer, resp_len);
+    response* new_resp = get_response(remote_fd, new_req_msg, new_req, curr_session);
+
     return new_resp;
 }
 
@@ -436,6 +526,6 @@ void proxy_server::send_400(const int & client_fd, session * curr_session)
     const char * bad400 = "HTTP/1.1 400 Bad Request\r\n Connection: close\r\n";
     send(client_fd, bad400, sizeof(bad400), 0);
     pthread_mutex_lock(&mutex);
-    log_file << curr_session->id << ": Responding \"HTTP/1.1 502 Bad Request\"" << std::endl;
+    log_file << curr_session->id << ": Responding \"HTTP/1.1 400 Bad Request\"" << std::endl;
     pthread_mutex_unlock(&mutex);
 }
