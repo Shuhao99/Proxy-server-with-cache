@@ -16,6 +16,14 @@ std::string dateToString(const std::chrono::system_clock::time_point &date) {
   return ss.str();
 }
 std::time_t getTimeNow() {
-  auto now = std::chrono::system_clock::now();
-  return std::chrono::system_clock::to_time_t(now);
+  // Get the current time
+  std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
+
+  // Convert to UTC time
+  std::time_t now_time = std::chrono::system_clock::to_time_t(now);
+  std::tm utc_tm = *gmtime(&now_time);
+  std::chrono::system_clock::time_point utc_now =
+      std::chrono::system_clock::from_time_t(std::mktime(&utc_tm));
+
+  return std::chrono::system_clock::to_time_t(utc_now);
 }
