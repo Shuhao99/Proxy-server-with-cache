@@ -11,7 +11,7 @@ std::chrono::system_clock::time_point stringToDate(const std::string &date) {
 std::string dateToString(const std::chrono::system_clock::time_point &date) {
   std::stringstream ss;
   std::time_t t = std::chrono::system_clock::to_time_t(date);
-  struct std::tm tm = *std::gmtime(&t); // Convert to UTC time
+  struct std::tm tm = *std::localtime(&t); // Convert to UTC time
   ss << std::put_time(&tm, "%a, %d %b %Y %H:%M:%S GMT");
   return ss.str();
 }
