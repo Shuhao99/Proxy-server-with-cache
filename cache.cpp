@@ -18,9 +18,8 @@ std::string getMaxage(const std::string &cacheControl) {
                                            ageEnd - ageStart - uselessLength);
   return maxAge;
 }
-bool isMaxageStale(
-    const std::string &maxAgeString,
-    const std::map<std::string, std::string> &headers) {
+bool isMaxageStale(const std::string &maxAgeString,
+                   const std::map<std::string, std::string> &headers) {
   int maxAge = std::stoi(maxAgeString);
 
   std::map<std::string, std::string>::const_iterator dateIterator =
@@ -35,14 +34,14 @@ bool isMaxageStale(
 }
 bool Cache::checkIfStale(const response &res) {
   std::map<std::string, std::string> headers = res.get_header();
-  std::map<std::string, std::string>::const_iterator
-      cacheControlIterator = headers.find("Cache-Control");
+  std::map<std::string, std::string>::const_iterator cacheControlIterator =
+      headers.find("Cache-Control");
   if (cacheControlIterator == headers.end()) {
-    std::map<std::string, std::string>::const_iterator
-        expiresIterator = headers.find("Expires");
+    std::map<std::string, std::string>::const_iterator expiresIterator =
+        headers.find("Expires");
     if (expiresIterator != headers.end()) {
       auto expires = stringToDate(expiresIterator->second);
-      auto now = std::chrono::system_clock::now();
+      auto now = std::chrono::system_clock::from_time_t(getTimeNow());
       return expires <= now;
     }
     return true;
@@ -165,8 +164,8 @@ std::string Cache::getExpires(const request &req) {
     std::string maxAgeString = getMaxage(cacheControl);
     if (!maxAgeString.empty()) {
       int maxAge = std::stoi(maxAgeString);
-      std::map<std::string, std::string>::const_iterator
-          dateIterator = headers.find("Date");
+      std::map<std::string, std::string>::const_iterator dateIterator =
+          headers.find("Date");
       if (dateIterator != headers.end()) {
         auto date = stringToDate(dateIterator->second);
         auto expires = date + std::chrono::seconds(maxAge);
