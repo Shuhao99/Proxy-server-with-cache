@@ -96,6 +96,8 @@ void Cache::updateCache(const request &req, response res) {
   if (!checkCachable(res)) {
     return;
   }
+  res.set_time();
+
   std::string key = getHashKey(req);
   auto resIterator = cache.find(key);
   if (resIterator == cache.end()) {
