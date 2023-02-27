@@ -15,11 +15,8 @@ public:
   response() : length(0), msg(""), miss_length(false){};
   void msg_push_back(std::string &add);
   void set_time() {
-    if (header.find("Date") == header.end()) {
-      header.insert(
-          {"Date",
-           dateToString(std::chrono::system_clock::from_time_t(getTimeNow()))});
-    }
+    header["Date"] =
+        dateToString(std::chrono::system_clock::from_time_t(getTimeNow()));
   }
   int get_length() { return this->length; }
   std::map<std::string, std::string> get_header() const { return this->header; }
