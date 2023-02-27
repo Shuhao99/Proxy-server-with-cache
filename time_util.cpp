@@ -27,3 +27,18 @@ std::time_t getTimeNow() {
 
   return std::chrono::system_clock::to_time_t(utc_now);
 }
+std::string getNowString() {
+  // Get the current time as a time_point
+  std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
+
+  // Convert the time_point to a time_t object
+  std::time_t currentTime_t = std::chrono::system_clock::to_time_t(now);
+
+  // Convert the time_t object to a tm struct in UTC time zone
+  std::tm *currentTime_tm = std::gmtime(&currentTime_t);
+
+  // Format the tm struct as a string in the format used in HTTP requests
+  std::stringstream ss;
+  ss << std::put_time(currentTime_tm, "%a, %d %b %Y %H:%M:%S GMT");
+  return ss.str();
+}

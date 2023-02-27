@@ -14,10 +14,7 @@ public:
   response(std::string msg);
   response() : length(0), msg(""), miss_length(false){};
   void msg_push_back(std::string &add);
-  void set_time() {
-    header["Date"] =
-        dateToString(std::chrono::system_clock::from_time_t(getTimeNow()));
-  }
+  void set_time() { header["Date"] = getNowString(); }
   int get_length() { return this->length; }
   std::map<std::string, std::string> get_header() const { return this->header; }
   std::string get_msg() const { return this->msg; }
