@@ -27,7 +27,7 @@ bool isMaxageStale(
       headers.find("Date");
   if (dateIterator != headers.end()) {
     auto date = stringToDate(dateIterator->second);
-    auto now = std::chrono::system_clock::now();
+    auto now = std::chrono::system_clock::from_time_t(getTimeNow());
     auto expires = date + std::chrono::seconds(maxAge);
     return expires <= now;
   }

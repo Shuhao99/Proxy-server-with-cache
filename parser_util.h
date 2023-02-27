@@ -17,4 +17,6 @@ std::string trim(const std::string& str);
 std::string get_first_line(const std::string&message);
 
 std::map<std::string, std::string> parse_headers(const std::string& message);
+
+std::string get_body(const std::string& httpResponse);
 #endif

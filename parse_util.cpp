@@ -16,6 +16,18 @@ std::vector<std::string> split(const std::string& str, const std::string& delimi
     return tokens;
 }
 
+std::string get_body(const std::string& httpResponse) {
+    std::string httpBody = "";
+    std::string delimiter = "\r\n\r\n";
+    size_t pos = httpResponse.find(delimiter); 
+
+    if (pos != std::string::npos) {
+        httpBody = httpResponse.substr(pos + delimiter.length());
+    }
+
+    return httpBody;
+}
+
 std::string trim(const std::string& str) {
     size_t start = str.find_first_not_of(" \t\r\n");
     size_t end = str.find_last_not_of(" \t\r\n");

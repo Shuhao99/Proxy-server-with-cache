@@ -374,7 +374,7 @@ response* proxy_server::get_response(
 
     int actual_len = resp->get_length();
     //get the whole msg package
-    while (resp->get_msg().length() < actual_len && rec_len > 0)
+    while ((get_body(resp->get_msg()).length() + 1) < actual_len && rec_len > 0)
     {
         rec_len = recv(remote_fd, buffer, sizeof(buffer), 0);
         if (rec_len > 0){
