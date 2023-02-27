@@ -22,5 +22,6 @@ public:
   std::map<std::string, std::string> get_header() const { return this->header; }
   std::string get_msg() const { return this->msg; }
   std::string get_fist_line() { return get_first_line(this->msg); }
+  int get_body_len() const{ return get_body(this->msg).length(); }
 };
 #endif

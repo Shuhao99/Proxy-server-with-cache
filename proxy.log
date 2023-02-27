@@ -1,459 +1,504 @@
-1: "CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:32 2023
+1: "CONNECT location.services.mozilla.com:443 HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:36:59 2023
 
-1: Requesting "CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1" from content-signature-2.cdn.mozilla.net
+1: Requesting "CONNECT location.services.mozilla.com:443 HTTP/1.1" from location.services.mozilla.com
 1: Responding "HTTP/1.1 200 OK"
-2: "GET http://vcm-30745.vm.duke.edu:8080/ HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:35 2023
+2: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:00 2023
+
+3: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:00 2023
 
 2: not in cache
-2: Requesting "GET http://vcm-30745.vm.duke.edu:8080/ HTTP/1.1" from vcm-30745.vm.duke.edu
-2: Received "HTTP/1.1 404 NOT FOUND" from vcm-30745.vm.duke.edu
-2: Responding "HTTP/1.1 404 NOT FOUND"
-3: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:35 2023
+2: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
+2: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
+2: NoteGET http://detectportal.firefox.com/canonical.html HTTP/1.1
+Host: detectportal.firefox.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Cache-Control: no-cache
+Pragma: no-cache
+Connection: keep-alive
 
-3: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+
+2: cached, expires at Mon, 27 Feb 2023 13:37:00 GMT
+2: Responding "HTTP/1.1 200 OK
+3: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+3: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+4: "CONNECT contile.services.mozilla.com:443 HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:00 2023
+
+3: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
 3: Responding "HTTP/1.1 200 OK"
-4: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:35 2023
+5: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:00 2023
 
-4: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+4: Requesting "CONNECT contile.services.mozilla.com:443 HTTP/1.1" from contile.services.mozilla.com
 4: Responding "HTTP/1.1 200 OK"
-5: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:43 2023
+5: in cache, valid
+5: Responding "HTTP/1.1 200 OK
+6: "CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:00 2023
 
-5: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
-5: Responding "HTTP/1.1 200 OK"
-6: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:43 2023
+6: Requesting "CONNECT content-signature-2.cdn.mozilla.net:443 HTTP/1.1" from content-signature-2.cdn.mozilla.net
+6: Responding "HTTP/1.1 200 OK"
+6: Tunnel closed
+7: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:00 2023
 
-6: not in cache
-6: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-6: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-6: cached, expires at Sun, 26 Feb 2023 23:17:41 GMT
-6: Responding "HTTP/1.1 200 OK
-7: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:43 2023
+7: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+7: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+7: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
+7: Responding "HTTP/1.1 200 OK"
+8: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from  @ Mon Feb 27 03:37:00 2023
 
-7: not in cache
-7: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-7: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-7: cached, expires at Sun, 26 Feb 2023 23:17:41 GMT
-7: Responding "HTTP/1.1 200 OK
-8: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:43 2023
+9: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:00 2023
 
-8: not in cache
-8: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-8: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-8: cached, expires at Sun, 26 Feb 2023 12:20:06 GMT
-8: Responding "HTTP/1.1 200 OK
-9: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:43 2023
-
-9: not in cache
-9: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-9: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-9: cached, expires at Sun, 26 Feb 2023 10:03:51 GMT
+9: in cache, valid
 9: Responding "HTTP/1.1 200 OK
-10: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:43 2023
+8: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+8: Responding "HTTP/1.1 200 OK"
+10: "CONNECT push.services.mozilla.com:443 HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:00 2023
 
-10: not in cache
-10: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-10: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-10: cached, expires at Sun, 26 Feb 2023 10:03:51 GMT
-10: Responding "HTTP/1.1 200 OK
-11: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:43 2023
+11: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:00 2023
 
-11: not in cache
-11: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-11: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-11: cached, expires at Sun, 26 Feb 2023 23:17:41 GMT
-11: Responding "HTTP/1.1 200 OK
-12: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:44 2023
+11: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+11: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+11: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
+11: Responding "HTTP/1.1 200 OK"
+12: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:00 2023
 
-12: not in cache
-12: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-12: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-12: cached, expires at Sun, 26 Feb 2023 15:06:28 GMT
-12: Responding "HTTP/1.1 200 OK
-13: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:44 2023
+10: Requesting "CONNECT push.services.mozilla.com:443 HTTP/1.1" from push.services.mozilla.com
+10: Responding "HTTP/1.1 200 OK"
+12: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+12: Responding "HTTP/1.1 200 OK"
+13: "CONNECT aus5.mozilla.org:443 HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:01 2023
 
-13: not in cache
-13: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-13: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-13: cached, expires at Sun, 26 Feb 2023 14:16:52 GMT
-13: Responding "HTTP/1.1 200 OK
-14: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:44 2023
+14: "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:01 2023
 
-14: not in cache
-14: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-14: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-14: cached, expires at Sun, 26 Feb 2023 14:16:52 GMT
-14: Responding "HTTP/1.1 200 OK
-15: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:44 2023
+14: Requesting "CONNECT contile-images.services.mozilla.com:443 HTTP/1.1" from contile-images.services.mozilla.com
+14: Responding "HTTP/1.1 200 OK"
+13: Requesting "CONNECT aus5.mozilla.org:443 HTTP/1.1" from aus5.mozilla.org
+13: Responding "HTTP/1.1 200 OK"
+16: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:01 2023
 
-15: not in cache
-15: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-15: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-15: cached, expires at Sun, 26 Feb 2023 12:20:06 GMT
-15: Responding "HTTP/1.1 200 OK
-16: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:44 2023
+15: "POST http://r3.o.lencr.org/ HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:01 2023
 
-16: not in cache
-16: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-16: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-16: cached, expires at Sun, 26 Feb 2023 14:16:52 GMT
-16: Responding "HTTP/1.1 200 OK
-17: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:44 2023
+16: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+16: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+15: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+15: Requesting "POST http://r3.o.lencr.org/ HTTP/1.1" from r3.o.lencr.org
+16: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
+16: Responding "HTTP/1.1 200 OK"
+15: Received "HTTP/1.1 200 OK" from r3.o.lencr.org
+15: Responding "HTTP/1.1 200 OK"
+17: "POST http://ocsp.digicert.com/ HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:01 2023
 
-17: not in cache
-17: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-17: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-17: cached, expires at Sun, 26 Feb 2023 10:03:51 GMT
-17: Responding "HTTP/1.1 200 OK
-18: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:44 2023
+17: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+17: Requesting "POST http://ocsp.digicert.com/ HTTP/1.1" from ocsp.digicert.com
+17: Received "HTTP/1.1 200 OK" from ocsp.digicert.com
+17: Responding "HTTP/1.1 200 OK"
+18: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:01 2023
 
-18: not in cache
-18: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-18: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-18: cached, expires at Sun, 26 Feb 2023 12:20:06 GMT
+18: in cache, valid
 18: Responding "HTTP/1.1 200 OK
-19: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:44 2023
+19: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:01 2023
 
-19: not in cache
-19: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-19: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-19: cached, expires at Sun, 26 Feb 2023 12:20:06 GMT
+19: in cache, valid
 19: Responding "HTTP/1.1 200 OK
-20: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:44 2023
+20: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:01 2023
 
-20: not in cache
-20: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-20: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-20: cached, expires at Sun, 26 Feb 2023 10:03:51 GMT
+20: in cache, valid
 20: Responding "HTTP/1.1 200 OK
-21: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:44 2023
+21: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:01 2023
 
-21: not in cache
-21: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-21: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-21: cached, expires at Sun, 26 Feb 2023 12:20:06 GMT
+21: in cache, valid
 21: Responding "HTTP/1.1 200 OK
-22: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:44 2023
+22: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:01 2023
 
-22: not in cache
-22: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-22: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-22: cached, expires at Sun, 26 Feb 2023 22:32:25 GMT
+22: in cache, valid
 22: Responding "HTTP/1.1 200 OK
-23: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:44 2023
+23: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:01 2023
 
-23: not in cache
-23: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-23: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-23: cached, expires at Sun, 26 Feb 2023 12:20:06 GMT
+23: in cache, valid
 23: Responding "HTTP/1.1 200 OK
-24: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:44 2023
+24: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:01 2023
 
-24: not in cache
-24: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-24: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-24: cached, expires at Sun, 26 Feb 2023 10:03:51 GMT
+24: in cache, valid
 24: Responding "HTTP/1.1 200 OK
-25: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:44 2023
+25: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:01 2023
 
-25: not in cache
-25: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-25: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-25: cached, expires at Sun, 26 Feb 2023 23:17:41 GMT
+25: in cache, valid
 25: Responding "HTTP/1.1 200 OK
-26: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:45 2023
+26: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:01 2023
 
-26: not in cache
-26: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-26: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-26: cached, expires at Sun, 26 Feb 2023 22:32:25 GMT
+26: in cache, valid
 26: Responding "HTTP/1.1 200 OK
-27: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:45 2023
+27: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:01 2023
 
-27: not in cache
-27: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-27: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-27: cached, expires at Sun, 26 Feb 2023 22:32:25 GMT
+27: in cache, valid
 27: Responding "HTTP/1.1 200 OK
-28: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:45 2023
+28: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:01 2023
 
-28: not in cache
-28: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-28: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-28: cached, expires at Sun, 26 Feb 2023 14:16:52 GMT
+28: in cache, valid
 28: Responding "HTTP/1.1 200 OK
-29: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:45 2023
+29: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:01 2023
 
-29: not in cache
-29: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-29: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-29: cached, expires at Sun, 26 Feb 2023 10:03:30 GMT
+29: in cache, valid
 29: Responding "HTTP/1.1 200 OK
-30: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:45 2023
+30: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-30: not in cache
-30: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-30: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-30: cached, expires at Sun, 26 Feb 2023 10:03:30 GMT
+30: in cache, valid
 30: Responding "HTTP/1.1 200 OK
-31: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:45 2023
+31: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-31: not in cache
-31: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-31: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-31: cached, expires at Sun, 26 Feb 2023 12:20:06 GMT
+31: in cache, valid
 31: Responding "HTTP/1.1 200 OK
-32: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:45 2023
+32: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-32: not in cache
-32: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-32: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-32: cached, expires at Sun, 26 Feb 2023 15:29:11 GMT
+32: in cache, valid
 32: Responding "HTTP/1.1 200 OK
-33: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:45 2023
+33: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-33: not in cache
-33: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-33: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-33: cached, expires at Sun, 26 Feb 2023 22:32:25 GMT
+33: in cache, valid
 33: Responding "HTTP/1.1 200 OK
-34: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:45 2023
+34: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-34: not in cache
-34: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-34: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-34: cached, expires at Sun, 26 Feb 2023 10:03:51 GMT
+34: in cache, valid
 34: Responding "HTTP/1.1 200 OK
-35: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:45 2023
+35: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-35: not in cache
-35: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-35: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-35: cached, expires at Sun, 26 Feb 2023 10:03:51 GMT
+35: in cache, valid
 35: Responding "HTTP/1.1 200 OK
-36: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:45 2023
+36: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-36: not in cache
-36: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-36: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-36: cached, expires at Sun, 26 Feb 2023 10:03:51 GMT
+36: in cache, valid
 36: Responding "HTTP/1.1 200 OK
-37: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:45 2023
+37: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-37: not in cache
-37: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-37: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-37: cached, expires at Sun, 26 Feb 2023 10:03:30 GMT
+37: in cache, valid
 37: Responding "HTTP/1.1 200 OK
-38: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:45 2023
+38: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-38: not in cache
-38: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-38: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-38: cached, expires at Sun, 26 Feb 2023 10:03:30 GMT
+38: in cache, valid
 38: Responding "HTTP/1.1 200 OK
-39: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:45 2023
+39: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-39: not in cache
-39: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-39: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-39: cached, expires at Sun, 26 Feb 2023 14:16:52 GMT
+39: in cache, valid
 39: Responding "HTTP/1.1 200 OK
-40: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:46 2023
+40: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-40: not in cache
-40: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-40: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-40: cached, expires at Sun, 26 Feb 2023 12:20:06 GMT
+40: in cache, valid
 40: Responding "HTTP/1.1 200 OK
-41: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:46 2023
+41: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-41: not in cache
-41: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-41: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-41: cached, expires at Sun, 26 Feb 2023 23:17:41 GMT
+41: in cache, valid
 41: Responding "HTTP/1.1 200 OK
-42: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:46 2023
+42: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-42: not in cache
-42: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-42: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-42: cached, expires at Sun, 26 Feb 2023 15:06:28 GMT
+42: in cache, valid
 42: Responding "HTTP/1.1 200 OK
-43: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:46 2023
+43: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-43: not in cache
-43: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-43: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-43: cached, expires at Sun, 26 Feb 2023 10:03:51 GMT
+43: in cache, valid
 43: Responding "HTTP/1.1 200 OK
-44: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:46 2023
+44: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-44: not in cache
-44: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-44: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-44: cached, expires at Sun, 26 Feb 2023 22:32:25 GMT
+44: in cache, valid
 44: Responding "HTTP/1.1 200 OK
-45: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:46 2023
+45: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-45: not in cache
-45: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-45: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-45: cached, expires at Sun, 26 Feb 2023 10:03:51 GMT
+45: in cache, valid
 45: Responding "HTTP/1.1 200 OK
-46: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:46 2023
+46: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-46: not in cache
-46: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-46: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-46: cached, expires at Sun, 26 Feb 2023 14:16:52 GMT
+46: in cache, valid
 46: Responding "HTTP/1.1 200 OK
-47: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:46 2023
+47: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-47: not in cache
-47: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-47: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-47: cached, expires at Sun, 26 Feb 2023 12:20:06 GMT
+47: in cache, valid
 47: Responding "HTTP/1.1 200 OK
-48: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:46 2023
+48: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-48: not in cache
-48: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-48: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-48: cached, expires at Sun, 26 Feb 2023 10:03:51 GMT
+48: in cache, valid
 48: Responding "HTTP/1.1 200 OK
-49: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:46 2023
+49: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-49: not in cache
-49: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-49: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-49: cached, expires at Sun, 26 Feb 2023 12:20:06 GMT
+49: in cache, valid
 49: Responding "HTTP/1.1 200 OK
-50: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:46 2023
+50: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:02 2023
 
-50: not in cache
-50: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-50: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-50: cached, expires at Sun, 26 Feb 2023 14:16:52 GMT
+50: in cache, valid
 50: Responding "HTTP/1.1 200 OK
-51: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:47 2023
+51: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
 
-51: not in cache
-51: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-51: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-51: cached, expires at Sun, 26 Feb 2023 22:32:25 GMT
+51: in cache, valid
 51: Responding "HTTP/1.1 200 OK
-52: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:47 2023
+52: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
 
-52: not in cache
-52: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-52: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-52: cached, expires at Sun, 26 Feb 2023 23:17:41 GMT
+52: in cache, valid
 52: Responding "HTTP/1.1 200 OK
-53: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:47 2023
+53: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
 
-53: not in cache
-53: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-53: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-53: cached, expires at Sun, 26 Feb 2023 10:03:51 GMT
+53: in cache, valid
 53: Responding "HTTP/1.1 200 OK
-54: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:47 2023
+54: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
 
-54: not in cache
-54: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-54: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-54: cached, expires at Sun, 26 Feb 2023 22:32:25 GMT
+54: in cache, valid
 54: Responding "HTTP/1.1 200 OK
-55: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:47 2023
+55: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
 
-55: not in cache
-55: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-55: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-55: cached, expires at Sun, 26 Feb 2023 23:17:41 GMT
+55: in cache, valid
 55: Responding "HTTP/1.1 200 OK
-56: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:47 2023
+56: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
 
-56: not in cache
-56: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-56: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-56: cached, expires at Sun, 26 Feb 2023 10:03:51 GMT
+56: in cache, valid
 56: Responding "HTTP/1.1 200 OK
-57: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:47 2023
+57: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
 
-57: not in cache
-57: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-57: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-57: cached, expires at Sun, 26 Feb 2023 23:17:41 GMT
+57: in cache, valid
 57: Responding "HTTP/1.1 200 OK
-58: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:47 2023
+58: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
 
-58: not in cache
-58: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-58: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-58: cached, expires at Sun, 26 Feb 2023 15:06:28 GMT
+58: in cache, valid
 58: Responding "HTTP/1.1 200 OK
-59: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:47 2023
+59: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
 
-59: not in cache
-59: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-59: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-59: cached, expires at Sun, 26 Feb 2023 14:16:52 GMT
+59: in cache, valid
 59: Responding "HTTP/1.1 200 OK
-60: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:47 2023
+60: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
 
-60: not in cache
-60: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-60: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-60: cached, expires at Sun, 26 Feb 2023 10:03:51 GMT
+60: in cache, valid
 60: Responding "HTTP/1.1 200 OK
-61: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:48 2023
+61: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
 
-61: not in cache
-61: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-61: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-61: cached, expires at Sun, 26 Feb 2023 10:03:51 GMT
+61: in cache, valid
 61: Responding "HTTP/1.1 200 OK
-62: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:48 2023
+62: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
 
-62: not in cache
-62: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-62: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-62: cached, expires at Sun, 26 Feb 2023 22:32:25 GMT
+62: in cache, valid
 62: Responding "HTTP/1.1 200 OK
-63: "GET http://vcm-30745.vm.duke.edu:8080/ HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:49 2023
+63: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
 
-63: not in cache
-63: Requesting "GET http://vcm-30745.vm.duke.edu:8080/ HTTP/1.1" from vcm-30745.vm.duke.edu
-63: Received "HTTP/1.1 404 NOT FOUND" from vcm-30745.vm.duke.edu
-63: Responding "HTTP/1.1 404 NOT FOUND"
-64: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:49 2023
+63: in cache, valid
+63: Responding "HTTP/1.1 200 OK
+64: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
 
-64: not in cache
-64: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-64: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-64: cached, expires at Sun, 26 Feb 2023 10:03:51 GMT
+64: in cache, valid
 64: Responding "HTTP/1.1 200 OK
-65: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:49 2023
+65: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
 
-65: not in cache
-65: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-65: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-65: cached, expires at Sun, 26 Feb 2023 10:03:51 GMT
+65: in cache, valid
 65: Responding "HTTP/1.1 200 OK
-66: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:49 2023
+66: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
 
-66: not in cache
-66: Requesting "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from detectportal.firefox.com
-66: Received "HTTP/1.1 200 OK" from detectportal.firefox.com
-66: cached, expires at Sun, 26 Feb 2023 10:03:51 GMT
+66: in cache, valid
 66: Responding "HTTP/1.1 200 OK
-67: "CONNECT push.services.mozilla.com:443 HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:50 2023
+67: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
 
-67: Requesting "CONNECT push.services.mozilla.com:443 HTTP/1.1" from push.services.mozilla.com
-67: Responding "HTTP/1.1 200 OK"
-68: NOTE client close session.
-69: "GET http://vcm-30745.vm.duke.edu:8080/ HTTP/1.1" from 173.95.91.85 @ Sun Feb 26 20:46:57 2023
+67: in cache, valid
+67: Responding "HTTP/1.1 200 OK
+68: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
 
-69: not in cache
-69: Requesting "GET http://vcm-30745.vm.duke.edu:8080/ HTTP/1.1" from vcm-30745.vm.duke.edu
-69: Received "HTTP/1.1 404 NOT FOUND" from vcm-30745.vm.duke.edu
-69: Responding "HTTP/1.1 404 NOT FOUND"
+68: in cache, valid
+68: Responding "HTTP/1.1 200 OK
+69: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
+
+69: in cache, valid
+69: Responding "HTTP/1.1 200 OK
+70: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:03 2023
+
+70: in cache, valid
+70: Responding "HTTP/1.1 200 OK
+71: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:04 2023
+
+71: in cache, valid
+71: Responding "HTTP/1.1 200 OK
+72: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:04 2023
+
+72: in cache, valid
+72: Responding "HTTP/1.1 200 OK
+73: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:04 2023
+
+73: in cache, valid
+73: Responding "HTTP/1.1 200 OK
+74: "GET http://detectportal.firefox.com/canonical.html HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:04 2023
+
+74: in cache, valid
+74: Responding "HTTP/1.1 200 OK
+75: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:07 2023
+
+75: not in cache
+75: Requesting "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from vcm-30745.vm.duke.edu
+75: Received "HTTP/1.1 200 OK" from vcm-30745.vm.duke.edu
+75: NoteGET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1
+Host: vcm-30745.vm.duke.edu:8080
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/110.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Cookie: csrftoken=tyksr9rcyOovowWoVgSjBflYjcpuV2g5
+Upgrade-Insecure-Requests: 1
+
+
+75: cached, expires at Mon, 27 Feb 2023 13:37:08 GMT
+75: Responding "HTTP/1.1 200 OK
+76: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:07 2023
+
+76: in cache, valid
+76: Responding "HTTP/1.1 200 OK
+77: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:07 2023
+
+77: in cache, valid
+77: Responding "HTTP/1.1 200 OK
+78: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:07 2023
+
+78: in cache, valid
+78: Responding "HTTP/1.1 200 OK
+79: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:07 2023
+
+79: in cache, valid
+79: Responding "HTTP/1.1 200 OK
+80: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:08 2023
+
+80: in cache, valid
+80: Responding "HTTP/1.1 200 OK
+81: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:08 2023
+
+81: in cache, valid
+81: Responding "HTTP/1.1 200 OK
+82: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:08 2023
+
+82: in cache, valid
+82: Responding "HTTP/1.1 200 OK
+83: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:08 2023
+
+83: in cache, valid
+83: Responding "HTTP/1.1 200 OK
+84: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:08 2023
+
+84: in cache, valid
+84: Responding "HTTP/1.1 200 OK
+85: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:09 2023
+
+85: in cache, valid
+85: Responding "HTTP/1.1 200 OK
+86: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:09 2023
+
+86: in cache, valid
+86: Responding "HTTP/1.1 200 OK
+87: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:09 2023
+
+87: in cache, valid
+87: Responding "HTTP/1.1 200 OK
+88: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:09 2023
+
+88: in cache, valid
+88: Responding "HTTP/1.1 200 OK
+89: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:09 2023
+
+89: in cache, valid
+89: Responding "HTTP/1.1 200 OK
+90: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:09 2023
+
+90: in cache, valid
+90: Responding "HTTP/1.1 200 OK
+91: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:09 2023
+
+91: in cache, valid
+91: Responding "HTTP/1.1 200 OK
+92: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:09 2023
+
+92: in cache, valid
+92: Responding "HTTP/1.1 200 OK
+93: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:09 2023
+
+93: in cache, valid
+93: Responding "HTTP/1.1 200 OK
+94: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:09 2023
+
+94: in cache, valid
+94: Responding "HTTP/1.1 200 OK
+95: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:11 2023
+
+95: in cache, valid
+95: Responding "HTTP/1.1 200 OK
+96: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:11 2023
+
+96: in cache, valid
+96: Responding "HTTP/1.1 200 OK
+97: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:11 2023
+
+97: in cache, valid
+97: Responding "HTTP/1.1 200 OK
+98: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:11 2023
+
+98: in cache, valid
+98: Responding "HTTP/1.1 200 OK
+99: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:11 2023
+
+99: in cache, valid
+99: Responding "HTTP/1.1 200 OK
+100: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:11 2023
+
+100: in cache, valid
+100: Responding "HTTP/1.1 200 OK
+101: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:11 2023
+
+101: in cache, valid
+101: Responding "HTTP/1.1 200 OK
+102: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:11 2023
+
+102: in cache, valid
+102: Responding "HTTP/1.1 200 OK
+103: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:11 2023
+
+103: in cache, valid
+103: Responding "HTTP/1.1 200 OK
+104: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:11 2023
+
+104: in cache, valid
+104: Responding "HTTP/1.1 200 OK
+105: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:14 2023
+
+105: in cache, valid
+105: Responding "HTTP/1.1 200 OK
+106: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:14 2023
+
+106: in cache, valid
+106: Responding "HTTP/1.1 200 OK
+107: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:14 2023
+
+107: in cache, valid
+107: Responding "HTTP/1.1 200 OK
+108: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:14 2023
+
+108: in cache, valid
+108: Responding "HTTP/1.1 200 OK
+109: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:14 2023
+
+109: in cache, valid
+109: Responding "HTTP/1.1 200 OK
+110: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:14 2023
+
+110: in cache, valid
+110: Responding "HTTP/1.1 200 OK
+111: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:14 2023
+
+111: in cache, valid
+111: Responding "HTTP/1.1 200 OK
+112: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:14 2023
+
+112: in cache, valid
+112: Responding "HTTP/1.1 200 OK
+113: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:15 2023
+
+113: in cache, valid
+113: Responding "HTTP/1.1 200 OK
+114: "GET http://vcm-30745.vm.duke.edu:8080/low-age HTTP/1.1" from 173.95.91.85 @ Mon Feb 27 03:37:15 2023
+
+114: in cache, valid
+114: Responding "HTTP/1.1 200 OK
+13: Tunnel closed
+8: Tunnel closed
+14: Tunnel closed
+4: Tunnel closed
+12: Tunnel closed
+0: Tunnel closed
+10: Tunnel closed

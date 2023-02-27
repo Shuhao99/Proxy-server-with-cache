@@ -78,9 +78,9 @@ void * proxy_server::handle(void *curr_session_){
     time_t rawtime;
     struct tm * timeinfo;
 		
-    time ( &rawtime );
-    timeinfo = localtime ( &rawtime );
-    const char* curr_time =  asctime (timeinfo);
+    std::time_t current_time = std::time(nullptr);
+    std::tm* utc_time = std::gmtime(&current_time);
+    const char* curr_time =  std::asctime(utc_time);
 
     //print to log
     pthread_mutex_lock(&mutex);
@@ -165,11 +165,19 @@ void * proxy_server::handle(void *curr_session_){
                         pthread_mutex_unlock(&mutex);
                     }
                     else{
+                         //test 
+                        pthread_mutex_lock(&mutex);
+                        log_file << curr_session->id << ": Note" << req->get_msg() << std::endl;
+                        pthread_mutex_unlock(&mutex);
                         update_cache(curr_session, req, resp);
                     }
                 }
                 else{
                     //TODO: abstract to a function, find if is revalidation or expired
+                     //test 
+                    pthread_mutex_lock(&mutex);
+                    log_file << curr_session->id << ": Note" << req->get_msg() << std::endl;
+                    pthread_mutex_unlock(&mutex);
                     update_cache(curr_session, req, resp);
                 }
 
@@ -184,6 +192,10 @@ void * proxy_server::handle(void *curr_session_){
         }
         
         if (cache_response.isFind && !cache_response.isFresh){
+            //test
+            pthread_mutex_lock(&mutex);
+            log_file << curr_session->id << "Entry not fresh" << std::endl;
+            pthread_mutex_unlock(&mutex);
             //re-validate
             response * validate_resp = validate(remote_fd, &cache_response.res, req, request_msg, curr_session);
             // is valid send back
@@ -374,7 +386,8 @@ response* proxy_server::get_response(
 
     int actual_len = resp->get_length();
     //get the whole msg package
-    while ((get_body(resp->get_msg()).length() + 1) < actual_len && rec_len > 0)
+    //while (resp->get_msg().length() < actual_len && rec_len > 0)
+    while ( (resp->get_body_len() + 1) < actual_len && rec_len > 0)
     {
         rec_len = recv(remote_fd, buffer, sizeof(buffer), 0);
         if (rec_len > 0){
