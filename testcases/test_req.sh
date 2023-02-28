@@ -1,62 +1,43 @@
 #!/bin/bash
 
-# test normal cases max-age=360000
-cat test_reqs/normal.txt | netcat $1 12345 
+# test normal response
+# request with no-store and no-cache in header
+cat test_reqs/req_nostore.txt | netcat $1 12345 
 sleep 1
-# test cache normal case
+cat test_reqs/req_nocache.txt | netcat $1 12345
+
+# test request with max-age=2 and max-age=6
 # should say in cache, valid
-cat test_reqs/normal.txt | netcat $1 12345 
-
-# test low max-age=2
-cat test_reqs/low-age.txt | netcat $1 12345 
+sleep 1
+cat test_reqs/req_maxage2.txt | netcat $1 12345 
 sleep 2
-#test cache low max-age=2
-# should say in cache but expired
-cat test_reqs/low-age.txt | netcat $1 12345 
+# Should say expire
+cat test_reqs/req_maxage2.txt | netcat $1 12345 
+sleep 3
+# Should be in cache valid
+cat test_reqs/req_maxage6.txt | netcat $1 12345 
 
 sleep 1
-#test private
-#should say not cacheable because private
-cat test_reqs/private.txt | netcat $1 12345 
+
+# Test request with max-stale=2 in header and 
+# and reponse give max=age=5
+cat test_reqs/req_maxstale.txt | netcat $1 12345
+sleep 5
+# Should be in cache valid
+cat test_reqs/req_maxstale.txt | netcat $1 12345
+
+sleep 3
+# Should be expired
+cat test_reqs/req_maxstale.txt | netcat $1 12345
 
 sleep 1
-#test validate using etag
-#should say no
-cat test_reqs/etag.txt | netcat $1 12345 
-sleep 1
-# sho
-cat test_reqs/etag.txt | netcat $1 12345 
-sleep 1
-
-#test no-store
-cat test_reqs/no-store.txt | netcat $1 12345 
-sleep 1
-
-#test get expire time using expires field in response
-cat test_reqs/expires.txt | netcat $1 12345 
-sleep 1
-cat test_reqs/expires.txt | netcat $1 12345 
-sleep 1
-
-# test must revalidate
-cat test_reqs/revalidate.txt | netcat $1 12345 
-sleep 1
-cat test_reqs/revalidate.txt | netcat $1 12345 
-sleep 1
-
-# test validate using last-modified time
-cat test_reqs/last-mofied.txt | netcat $1 12345 
+# Test request with min-fresh=2 in its header
+# Response return max-age=5 in header
+cat test_reqs/req_minfresh.txt | netcat $1 12345
 sleep 2 
-cat test_reqs/last-mofied.txt | netcat $1 12345 
-sleep 1
+# Should be in cache valid
+cat test_reqs/req_minfresh.txt | netcat $1 12345
 
-#test chunked using url in Notion
-cat test_reqs/chunked.txt | netcat $1 12345 
 sleep 2
-
-sleep 1
-# test post using url in Notion
-cat test_reqs/post.txt | netcat $1 12345 
-sleep 1
-# test connect to google.com
-cat test_reqs/connect.txt | netcat $1 12345 
+# Should be expired
+cat test_reqs/req_minfresh.txt | netcat $1 12345
