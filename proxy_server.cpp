@@ -72,8 +72,6 @@ void * proxy_server::handle(void *curr_session_){
         return NULL;
     }
     
-    //TEST
-    std::cout<<"get request: "<< req->get_fist_line() <<std::endl;
     //get curr time string
     time_t rawtime;
     struct tm * timeinfo;
@@ -84,7 +82,7 @@ void * proxy_server::handle(void *curr_session_){
 
     //print to log
     pthread_mutex_lock(&mutex);
-    log_file << curr_session->id <<": \"" << req->get_fist_line() << "\" from " << curr_session->ip << " @ " << curr_time << std::endl;
+    log_file << curr_session->id <<": \"" << req->get_fist_line() << "\" from " << curr_session->ip << " @ " << curr_time;
     pthread_mutex_unlock(&mutex);
 
     //Connect to remote server.
@@ -143,59 +141,53 @@ void * proxy_server::handle(void *curr_session_){
                 resp->get_header().count("Transfer-Encoding") 
                 && resp->get_header()["Transfer-Encoding"] == "chunked"
             ){
-                forward_chunked_data(remote_fd, require_fd, resp->get_msg(), curr_session);
+                forward_chunked_data(remote_fd, require_fd, resp, curr_session);
             }
-
-            // if not chunked
-            else if (resp->get_header().count("Content-Length")) 
-            {   
-                //Check if it is cacheble
-                if(resp->get_header().count("Cache-Control"))
+            else{
+                //send to client
+                send(require_fd, resp->get_msg().c_str(), resp->get_length(), 0);
+            }
+            
+            if(resp->get_header().count("Cache-Control"))
+            {
+                if (resp->get_header()["Cache-Control"].find("no-store") != std::string::npos)
                 {
-                    if (resp->get_header()["Cache-Control"].find("no-store") != std::string::npos)
-                    {
-                        pthread_mutex_lock(&mutex);
-                        log_file << curr_session->id << ": not cacheable because it said no-store" << std::endl;
-                        pthread_mutex_unlock(&mutex);
-                    }
-                    else if (resp->get_header()["Cache-Control"].find("private") != std::string::npos)
-                    {
-                        pthread_mutex_lock(&mutex);
-                        log_file << curr_session->id << ": not cacheable because it is private" << std::endl;
-                        pthread_mutex_unlock(&mutex);
-                    }
-                    else{
-                         //test 
-                        pthread_mutex_lock(&mutex);
-                        log_file << curr_session->id << ": Note" << req->get_msg() << std::endl;
-                        pthread_mutex_unlock(&mutex);
-                        update_cache(curr_session, req, resp);
-                    }
+                    pthread_mutex_lock(&mutex);
+                    log_file << curr_session->id << ": not cacheable because it said no-store" << std::endl;
+                    pthread_mutex_unlock(&mutex);
+                }
+                else if (resp->get_header()["Cache-Control"].find("private") != std::string::npos)
+                {
+                    pthread_mutex_lock(&mutex);
+                    log_file << curr_session->id << ": not cacheable because it is private" << std::endl;
+                    pthread_mutex_unlock(&mutex);
                 }
                 else{
-                    //TODO: abstract to a function, find if is revalidation or expired
-                     //test 
-                    pthread_mutex_lock(&mutex);
-                    log_file << curr_session->id << ": Note" << req->get_msg() << std::endl;
-                    pthread_mutex_unlock(&mutex);
                     update_cache(curr_session, req, resp);
                 }
-
-                send(require_fd, resp->get_msg().c_str(), resp->get_length(), 0);
-                
-                pthread_mutex_lock(&mutex);
-                log_file << curr_session->id << ": Responding \"" << resp->get_fist_line() << std::endl;
-                pthread_mutex_unlock(&mutex);
-                
             }
+            else if(
+                !resp->get_header().count("ETag")
+                && !resp->get_header().count("Last-Modified")
+            ){
+                pthread_mutex_lock(&mutex);
+                log_file << curr_session->id << ": not cacheable because don't have ETag nor Last-Modified" << std::endl;
+                pthread_mutex_unlock(&mutex);
+            }
+            else{
+                update_cache(curr_session, req, resp);
+            }
+            
+            //print to log
+            pthread_mutex_lock(&mutex);
+            log_file << curr_session->id << ": Responding \"" << resp->get_fist_line() << std::endl;
+            pthread_mutex_unlock(&mutex);
+            
+                
             delete resp;
         }
         
         if (cache_response.isFind && !cache_response.isFresh){
-            //test
-            pthread_mutex_lock(&mutex);
-            log_file << curr_session->id << "Entry not fresh" << std::endl;
-            pthread_mutex_unlock(&mutex);
             //re-validate
             response * validate_resp = validate(remote_fd, &cache_response.res, req, request_msg, curr_session);
             // is valid send back
@@ -407,19 +399,12 @@ response* proxy_server::get_response(
 void proxy_server::forward_chunked_data(
     const int &remote_fd,
     const int &client_fd,
-    const std::string &first_pkg,
+    response *resp,
     const session * curr_session)
 {
-    //TODO: record in log data
-    pthread_mutex_lock(&mutex);
-    log_file << curr_session->id << ": not cacheable because it is chunked" << std::endl;
-    pthread_mutex_unlock(&mutex);
+    std::string first_pkg = resp->get_msg();
     //send first package
     send(remote_fd, first_pkg.c_str(), first_pkg.length(), 0);
-
-    pthread_mutex_lock(&mutex);
-    log_file << curr_session->id << ": Responding \"" << get_first_line(first_pkg) << std::endl;
-    pthread_mutex_unlock(&mutex);
 
     char buffer[BUFFER_SIZE];
     int len = 1;
@@ -429,8 +414,10 @@ void proxy_server::forward_chunked_data(
         if(len > 0){
             send(client_fd, buffer, len, 0);
         }
+        std::string resp_msg(buffer, len);
+        resp->msg_push_back(resp_msg);
     }
-    
+    resp->set_len(resp->get_msg().length() + 1); 
 }
 
 int proxy_server::make_connection(
@@ -507,12 +494,12 @@ response* proxy_server::validate(
     size_t pos = request_.find_last_not_of(" \t\r\n");
     std::string new_req_msg = request_.substr(0, pos+1);
     
-    if (resp->get_header().count("ETag")) {
-        std::string new_req_msg = new_req_msg + "\r\nIf-None-Match: " + resp->get_header()["ETag"];
+    if (resp->get_header().count("ETag") && new_req_msg.find("ETag") == std::string::npos) {
+        new_req_msg = new_req_msg + "\r\nIf-None-Match: " + resp->get_header()["ETag"];
     }
     
-    if (resp->get_header().count("Last-Modified")) {
-        std::string new_req_msg = new_req_msg + "\r\nIf-Modified-Since: " + resp->get_header()["Last-Modified"];
+    if (resp->get_header().count("Last-Modified") && new_req_msg.find("Last-Modified") == std::string::npos) {
+        new_req_msg = new_req_msg + "\r\nIf-Modified-Since: " + resp->get_header()["Last-Modified"];
     }
     new_req_msg = new_req_msg + "\r\n\r\n";
     //get response frome remote server
@@ -520,6 +507,7 @@ response* proxy_server::validate(
 
     response* new_resp = get_response(remote_fd, new_req_msg, new_req, curr_session);
 
+    delete new_req;
     return new_resp;
 }
 
