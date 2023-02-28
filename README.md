@@ -29,9 +29,10 @@ NEW_STRING="vcm-xxxxx.vm.duke.edu"
 bash generate.sh
 ```
 this command will generate test requests using templete text files in ```/test_temp``` to ```/test_reqs``` folder.
-- Raplace <HOST_NAME> with your own host (the one runs proxy server) and run
+-  Run
 ```
-bash test.sh <HOST_NAME>
+bash test.sh <HOST_NAME> 
+# Raplace <HOST_NAME> with your own host (the one runs proxy server)
 ```
 
 ## Testing cases
