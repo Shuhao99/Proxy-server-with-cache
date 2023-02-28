@@ -20,5 +20,6 @@ public:
   std::string get_msg() const { return this->msg; }
   std::string get_fist_line() { return get_first_line(this->msg); }
   int get_body_len() const{ return get_body(this->msg).length(); }
+  void set_len(int len) { length = len; }
 };
 #endif
