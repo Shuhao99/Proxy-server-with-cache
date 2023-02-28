@@ -1,4 +1,19 @@
 #include "cache.hpp"
+std::string getInfoFromControl(const std::string &cacheControl,
+                               std::string info) {
+  size_t infoStart = cacheControl.find(info);
+  if (infoStart == std::string::npos) {
+    return std::string();
+  }
+  size_t uselessLength = info.size() + 1;
+  size_t infoEnd = cacheControl.find_first_of(" ,", infoStart);
+  if (infoEnd == std::string::npos) {
+    infoEnd = cacheControl.length();
+  }
+  std::string ans = cacheControl.substr(infoStart + uselessLength,
+                                        infoEnd - infoStart - uselessLength);
+  return ans;
+}
 std::string getMaxage(const std::string &cacheControl) {
   size_t ageStart = cacheControl.find("max-age");
   if (ageStart == std::string::npos) {
@@ -18,8 +33,51 @@ std::string getMaxage(const std::string &cacheControl) {
                                            ageEnd - ageStart - uselessLength);
   return maxAge;
 }
+bool checkReqStale(const std::map<std::string, std::string> &headers,
+                   std::chrono::system_clock::time_point expires,
+                   std::chrono::system_clock::time_point now,
+                   const reqControl &reqCon) {
+
+  std::string maxAgeStr = reqCon.maxAge;
+  std::string maxStaleStr = reqCon.maxStale;
+  std::string minFreshStr = reqCon.minFresh;
+
+  if (!maxAgeStr.empty()) {
+    int maxAge = std::stoi(maxAgeStr);
+    auto dateIter = headers.find("Date");
+    if (dateIter != headers.end()) {
+      auto date = stringToDate(dateIter->second);
+      auto reqExpires = date + std::chrono::seconds(maxAge);
+      if (reqExpires < expires) {
+        return reqExpires <= now;
+      } else {
+        return expires <= now;
+      }
+    }
+  }
+  if (!maxStaleStr.empty()) {
+    int maxStale = std::stoi(maxStaleStr);
+    auto reqExpires = expires + std::chrono::seconds(maxStale);
+    if (reqExpires < expires) {
+      return reqExpires <= now;
+    } else {
+      return expires <= now;
+    }
+  }
+  if (!minFreshStr.empty()) {
+    int minFresh = std::stoi(minFreshStr);
+    auto reqExpires = expires - std::chrono::seconds(minFresh);
+    if (reqExpires < expires) {
+      return reqExpires <= now;
+    } else {
+      return expires <= now;
+    }
+  }
+  return expires <= now;
+}
 bool isMaxageStale(const std::string &maxAgeString,
-                   const std::map<std::string, std::string> &headers) {
+                   const std::map<std::string, std::string> &headers,
+                   const reqControl &reqCon) {
   int maxAge = std::stoi(maxAgeString);
 
   std::map<std::string, std::string>::const_iterator dateIterator =
@@ -28,11 +86,11 @@ bool isMaxageStale(const std::string &maxAgeString,
     auto date = stringToDate(dateIterator->second);
     auto now = std::chrono::system_clock::from_time_t(getTimeNow());
     auto expires = date + std::chrono::seconds(maxAge);
-    return expires <= now;
+    return checkReqStale(headers, expires, now, reqCon);
   }
   return true;
 }
-bool Cache::checkIfStale(const response &res) {
+bool Cache::checkIfStale(const response &res, const reqControl &reqCon) {
   std::map<std::string, std::string> headers = res.get_header();
   std::map<std::string, std::string>::const_iterator cacheControlIterator =
       headers.find("Cache-Control");
@@ -42,7 +100,7 @@ bool Cache::checkIfStale(const response &res) {
     if (expiresIterator != headers.end()) {
       auto expires = stringToDate(expiresIterator->second);
       auto now = std::chrono::system_clock::from_time_t(getTimeNow());
-      return expires <= now;
+      return checkReqStale(headers, expires, now, reqCon);
     }
     return true;
   }
@@ -53,7 +111,7 @@ bool Cache::checkIfStale(const response &res) {
     // cacheControl == "max-age=0" || ... => need revalidate
     return true;
   }
-  return isMaxageStale(maxAgeString, headers);
+  return isMaxageStale(maxAgeString, headers, reqCon);
 }
 
 cacheResponse Cache::revalidate(const response &res) {
@@ -92,8 +150,19 @@ void Cache::cacheLruDelete() {
     cache.erase(keyNeedRemove);
   }
 }
+bool checkReqCachable(const request &req) {
+  auto header = req.get_header();
+  auto cacheIter = header.find("Cache-Control");
+  if (cacheIter != header.end()) {
+    std::string cacheControl = cacheIter->second;
+    if (cacheControl.find("no-store") != std::string::npos) {
+      return false;
+    }
+  }
+  return true;
+}
 void Cache::updateCache(const request &req, response res) {
-  if (!checkCachable(res)) {
+  if (!checkCachable(res) || !checkReqCachable(req)) {
     return;
   }
   res.set_time();
@@ -133,11 +202,39 @@ bool Cache::checkCachable(const response &res) {
 //   return true;
 // }
 
+reqControl checkControlInReq(const request &req) {
+  auto header = req.get_header();
+  auto cacheIter = header.find("Cache-Control");
+  if (cacheIter == header.end()) {
+    return reqControl();
+  }
+  std::string cacheControl = cacheIter->second;
+  std::string maxAge = getMaxage(cacheControl);
+  std::string maxStale = getInfoFromControl(cacheControl, "max-stale");
+  std::string minFresh = getInfoFromControl(cacheControl, "min-fresh");
+  return reqControl(maxAge, maxStale, minFresh);
+}
+
 cacheResponse Cache::getResponseFromCache(const request &req) {
-  if (checkInCache(req)) {
+  bool inCache = checkInCache(req);
+
+  auto header = req.get_header();
+  auto cacheIter = header.find("Cache-Control");
+  if (cacheIter != header.end()) {
+    std::string cacheControl = cacheIter->second;
+    if (cacheControl.find("no-cache") != std::string::npos) {
+      if (inCache) {
+        auto resIter = cache.find(getHashKey(req));
+        response res = resIter->second.first;
+        return revalidate(res);
+      }
+    }
+  }
+  if (inCache) {
     auto resIter = cache.find(getHashKey(req));
+    reqControl reqCon = checkControlInReq(req);
     response res = resIter->second.first;
-    if (checkIfStale(res)) {
+    if (checkIfStale(res, reqCon)) {
       return revalidate(res);
     } else {
       cacheResponse ans(true, true);
