@@ -1,25 +1,33 @@
 #!/bin/bash
 
-#test normal cases max-age=360000
+# test normal cases max-age=360000
 cat test_reqs/normal.txt | netcat $1 12345 
 sleep 1
-#test cache normal case
+# test cache normal case
+# should say in cache, valid
 cat test_reqs/normal.txt | netcat $1 12345 
 
-#test low max-age=2
+# test low max-age=2
 cat test_reqs/low-age.txt | netcat $1 12345 
 sleep 2
 #test cache low max-age=2
+# should say in cache but expired
 cat test_reqs/low-age.txt | netcat $1 12345 
+
 sleep 1
 #test private
+#should say not cacheable because private
 cat test_reqs/private.txt | netcat $1 12345 
+
 sleep 1
 #test validate using etag
+#should say no
 cat test_reqs/etag.txt | netcat $1 12345 
 sleep 1
+# sho
 cat test_reqs/etag.txt | netcat $1 12345 
 sleep 1
+
 #test no-store
 cat test_reqs/no-store.txt | netcat $1 12345 
 sleep 1

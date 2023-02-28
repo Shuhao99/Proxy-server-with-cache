@@ -113,5 +113,47 @@ def example8():
 
     return response
 
+@app.route('/test-req1')
+def example9():
+    # here to change headers
+    headers = {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'max-age=5',
+        'Content-Length':'10',
+        'ETag': '1234567890abcdef',
+    }
+    response = make_response(jsonify(headers), 200) # here to change status code
+    response.headers = headers # set headers
+
+    return response
+
+@app.route('/test-req2')
+def example10():
+    # here to change headers
+    headers = {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'max-age=5',
+        'Content-Length':'10',
+        'ETag': '1234567890abcdef',
+    }
+    response = make_response(jsonify(headers), 200) # here to change status code
+    response.headers = headers # set headers
+
+    return response
+
+@app.route('/test-req3')
+def example11():
+    # here to change headers
+    headers = {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'max-age=5',
+        'Content-Length':'10',
+        'ETag': '1234567890abcdef',
+    }
+    response = make_response(jsonify(headers), 200) # here to change status code
+    response.headers = headers # set headers
+
+    return response
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port='8080')
