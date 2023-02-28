@@ -12,7 +12,11 @@ or directly run the main file in ```/src``` directory
 ### step 1
 Run the proxy server on your machine
 ### step 2 
-open a new bash terminal and run ```test.py``` in ```/testcases``` directory, this will run a simple web-application writen by flask.
+open a new bash terminal and run 
+```
+python3 test.py
+``` 
+in ```/testcases``` directory, this will run a simple web-application writen by flask.
 ### step 3
 - open a new bash terminal and entry ```/testcases``` directory.
 - open ```generate.sh``` file, change ```NEW_STRING``` variable to your own host, the one that runs ```test.py```. 
