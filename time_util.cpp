@@ -21,7 +21,7 @@ dateToStringInFormat(const std::chrono::system_clock::time_point &date) {
   std::stringstream ss;
   std::time_t t = std::chrono::system_clock::to_time_t(date);
   struct std::tm tm = *std::localtime(&t); // Convert to UTC time
-  ss << std::put_time(&tm, "%a, %b %d  %H:%M:%S %Y");
+  ss << std::put_time(&tm, "%a %b %d  %H:%M:%S %Y");
   return ss.str();
 }
 
