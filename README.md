@@ -52,6 +52,9 @@ Test the LRU logic.
 ### The `.log` files
 - I stored my proxy.log outputs of these tests in `.log` files.
 
+## Manually testing
+- I have tested my concurrency and cache logic using firefox browser manually.
+
 # Cache Policy
 
 ## cache  size: 100 items
