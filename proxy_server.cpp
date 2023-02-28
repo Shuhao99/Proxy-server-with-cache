@@ -257,8 +257,7 @@ void * proxy_server::handle(void *curr_session_){
                 << "Requesting \"" << req->get_fist_line() 
                 << "\" from " << req->get_host() << std::endl;
         pthread_mutex_unlock(&mutex);
-        //handlePOST(client_fd, server_fd, 
-        //req_msg, len, client_info->getID(), host);
+      
         if (req->get_header().count("Content-Length"))
         {
             //forward the post request
