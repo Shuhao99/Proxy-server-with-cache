@@ -15,6 +15,16 @@ std::string dateToString(const std::chrono::system_clock::time_point &date) {
   ss << std::put_time(&tm, "%a, %d %b %Y %H:%M:%S GMT");
   return ss.str();
 }
+
+std::string
+dateToStringInFormat(const std::chrono::system_clock::time_point &date) {
+  std::stringstream ss;
+  std::time_t t = std::chrono::system_clock::to_time_t(date);
+  struct std::tm tm = *std::localtime(&t); // Convert to UTC time
+  ss << std::put_time(&tm, "%a, %b %d  %H:%M:%S %Y");
+  return ss.str();
+}
+
 std::time_t getTimeNow() {
   // Get the current time
   std::chrono::system_clock::time_point now = std::chrono::system_clock::now();

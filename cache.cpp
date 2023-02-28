@@ -255,7 +255,7 @@ std::string Cache::getExpires(const request &req) {
   auto headers = res.get_header();
   auto expireIter = headers.find("Expires");
   if (expireIter != headers.end()) {
-    return expireIter->second;
+    return dateToStringInFormat(stringToDate(expireIter->second));
   }
   auto cacheIter = headers.find("Cache-Control");
   if (cacheIter != headers.end()) {
@@ -268,7 +268,7 @@ std::string Cache::getExpires(const request &req) {
       if (dateIterator != headers.end()) {
         auto date = stringToDate(dateIterator->second);
         auto expires = date + std::chrono::seconds(maxAge);
-        return dateToString(expires);
+        return dateToStringInFormat(expires);
       }
     }
   }
