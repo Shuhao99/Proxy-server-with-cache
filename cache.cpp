@@ -58,11 +58,7 @@ bool checkReqStale(const std::map<std::string, std::string> &headers,
   if (!maxStaleStr.empty()) {
     int maxStale = std::stoi(maxStaleStr);
     auto reqExpires = expires + std::chrono::seconds(maxStale);
-    if (reqExpires < expires) {
-      return reqExpires <= now;
-    } else {
-      return expires <= now;
-    }
+    return reqExpires <= now;
   }
   if (!minFreshStr.empty()) {
     int minFresh = std::stoi(minFreshStr);
