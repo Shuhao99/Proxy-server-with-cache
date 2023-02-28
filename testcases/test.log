@@ -1,0 +1,101 @@
+1: "GET http:///revalidate HTTP/1.1" from 152.3.52.72 @ Tue Feb 28 04:16:42 2023
+1: ERROR Can not connect to remote server, check request format.
+1: Responding "HTTP/1.1 400 Bad Request"
+2: WARNING Request format wrong, no request has been processed.
+2: Responding "HTTP/1.1 400 Bad Request"
+3: "GET http://vcm-31263.vm.duke.edu:8080/normal HTTP/1.1" from 152.3.52.72 @ Tue Feb 28 04:16:46 2023
+3: not in cache
+3: Requesting "GET http://vcm-31263.vm.duke.edu:8080/normal HTTP/1.1" from vcm-31263.vm.duke.edu
+3: Received "HTTP/1.1 200 OK" from vcm-31263.vm.duke.edu
+3: cached, expires at Sat Mar 04  08:16:46 2023
+3: Responding "HTTP/1.1 200 OK
+4: "GET http://vcm-31263.vm.duke.edu:8080/normal HTTP/1.1" from 152.3.52.72 @ Tue Feb 28 04:16:47 2023
+4: in cache, valid
+4: Responding "HTTP/1.1 200 OK
+5: "GET http://vcm-31263.vm.duke.edu:8080/low-age HTTP/1.1" from 152.3.52.72 @ Tue Feb 28 04:16:47 2023
+5: not in cache
+5: Requesting "GET http://vcm-31263.vm.duke.edu:8080/low-age HTTP/1.1" from vcm-31263.vm.duke.edu
+5: Received "HTTP/1.1 200 OK" from vcm-31263.vm.duke.edu
+5: cached, but requires re-validation
+5: Responding "HTTP/1.1 200 OK
+6: "GET http://vcm-31263.vm.duke.edu:8080/low-age HTTP/1.1" from 152.3.52.72 @ Tue Feb 28 04:16:49 2023
+6: not in cache
+6: Requesting "GET http://vcm-31263.vm.duke.edu:8080/low-age HTTP/1.1" from vcm-31263.vm.duke.edu
+6: Received "HTTP/1.1 200 OK" from vcm-31263.vm.duke.edu
+6: cached, expires at Tue Feb 28  04:16:51 2023
+6: Responding "HTTP/1.1 200 OK
+7: "GET http://vcm-31263.vm.duke.edu:8080/private HTTP/1.1" from 152.3.52.72 @ Tue Feb 28 04:16:50 2023
+7: not in cache
+7: Requesting "GET http://vcm-31263.vm.duke.edu:8080/private HTTP/1.1" from vcm-31263.vm.duke.edu
+7: Received "HTTP/1.1 200 OK" from vcm-31263.vm.duke.edu
+7: not cacheable because it is private
+7: Responding "HTTP/1.1 200 OK
+8: "GET http://vcm-31263.vm.duke.edu:8080/etag HTTP/1.1" from 152.3.52.72 @ Tue Feb 28 04:16:51 2023
+8: not in cache
+8: Requesting "GET http://vcm-31263.vm.duke.edu:8080/etag HTTP/1.1" from vcm-31263.vm.duke.edu
+8: Received "HTTP/1.1 200 OK" from vcm-31263.vm.duke.edu
+8: cached, but requires re-validation
+8: Responding "HTTP/1.1 200 OK
+9: "GET http://vcm-31263.vm.duke.edu:8080/etag HTTP/1.1" from 152.3.52.72 @ Tue Feb 28 04:16:52 2023
+9: in cache, requires validation
+9: Requesting "GET http://vcm-31263.vm.duke.edu:8080/etag HTTP/1.1" from vcm-31263.vm.duke.edu
+9: Received "HTTP/1.1 200 OK" from vcm-31263.vm.duke.edu
+9: cached, but requires re-validation
+9: Responding "HTTP/1.1 200 OK
+10: "GET http://vcm-31263.vm.duke.edu:8080/no-store HTTP/1.1" from 152.3.52.72 @ Tue Feb 28 04:16:53 2023
+10: not in cache
+10: Requesting "GET http://vcm-31263.vm.duke.edu:8080/no-store HTTP/1.1" from vcm-31263.vm.duke.edu
+10: Received "HTTP/1.1 200 OK" from vcm-31263.vm.duke.edu
+10: not cacheable because it said no-store
+10: Responding "HTTP/1.1 200 OK
+11: "GET http://vcm-31263.vm.duke.edu:8080/expires HTTP/1.1" from 152.3.52.72 @ Tue Feb 28 04:16:54 2023
+11: not in cache
+11: Requesting "GET http://vcm-31263.vm.duke.edu:8080/expires HTTP/1.1" from vcm-31263.vm.duke.edu
+11: Received "HTTP/1.1 200 OK" from vcm-31263.vm.duke.edu
+11: cached, expires at Sun Feb 26  23:59:59 2023
+11: Responding "HTTP/1.1 200 OK
+12: "GET http://vcm-31263.vm.duke.edu:8080/expires HTTP/1.1" from 152.3.52.72 @ Tue Feb 28 04:16:55 2023
+12: in cache, but expired at Sun Feb 26  23:59:59 2023
+12: Requesting "GET http://vcm-31263.vm.duke.edu:8080/expires HTTP/1.1" from vcm-31263.vm.duke.edu
+12: Received "HTTP/1.1 200 OK" from vcm-31263.vm.duke.edu
+12: cached, expires at Sun Feb 26  23:59:59 2023
+12: Responding "HTTP/1.1 200 OK
+13: "GET http://vcm-31263.vm.duke.edu:8080/revalidate HTTP/1.1" from 152.3.52.72 @ Tue Feb 28 04:16:56 2023
+13: not in cache
+13: Requesting "GET http://vcm-31263.vm.duke.edu:8080/revalidate HTTP/1.1" from vcm-31263.vm.duke.edu
+13: Received "HTTP/1.1 200 OK" from vcm-31263.vm.duke.edu
+13: cached, but requires re-validation
+13: Responding "HTTP/1.1 200 OK
+14: "GET http://vcm-31263.vm.duke.edu:8080/revalidate HTTP/1.1" from 152.3.52.72 @ Tue Feb 28 04:16:57 2023
+14: in cache, requires validation
+14: Requesting "GET http://vcm-31263.vm.duke.edu:8080/revalidate HTTP/1.1" from vcm-31263.vm.duke.edu
+14: Received "HTTP/1.1 200 OK" from vcm-31263.vm.duke.edu
+14: cached, but requires re-validation
+14: Responding "HTTP/1.1 200 OK
+15: "GET http://vcm-31263.vm.duke.edu:8080/last-mofied HTTP/1.1" from 152.3.52.72 @ Tue Feb 28 04:16:58 2023
+15: not in cache
+15: Requesting "GET http://vcm-31263.vm.duke.edu:8080/last-mofied HTTP/1.1" from vcm-31263.vm.duke.edu
+15: Received "HTTP/1.1 200 OK" from vcm-31263.vm.duke.edu
+15: cached, expires at Tue Feb 28  04:17:00 2023
+15: Responding "HTTP/1.1 200 OK
+16: "GET http://vcm-31263.vm.duke.edu:8080/last-mofied HTTP/1.1" from 152.3.52.72 @ Tue Feb 28 04:17:00 2023
+16: in cache, but expired at Tue Feb 28  04:17:00 2023
+16: Requesting "GET http://vcm-31263.vm.duke.edu:8080/last-mofied HTTP/1.1" from vcm-31263.vm.duke.edu
+16: Received "HTTP/1.1 200 OK" from vcm-31263.vm.duke.edu
+16: cached, expires at Tue Feb 28  04:17:02 2023
+16: Responding "HTTP/1.1 200 OK
+17: "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from 152.3.52.72 @ Tue Feb 28 04:17:01 2023
+17: not in cache
+17: Requesting "GET http://www.httpwatch.com/httpgallery/chunked/chunkedimage.aspx HTTP/1.1" from www.httpwatch.com
+17: Received "HTTP/1.1 200 OK" from www.httpwatch.com
+17: not cacheable because it said no-store
+17: Responding "HTTP/1.1 200 OK
+18: "POST http://httpbin.org/post HTTP/1.1" from 152.3.52.72 @ Tue Feb 28 04:17:08 2023
+18: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+18: Requesting "POST http://httpbin.org/post HTTP/1.1" from httpbin.org
+18: Received "HTTP/1.1 200 OK" from httpbin.org
+18: Responding "HTTP/1.1 200 OK"
+19: "CONNECT www.google.com:443 HTTP/1.1" from 152.3.52.72 @ Tue Feb 28 04:17:09 2023
+19: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+19: Responding "HTTP/1.1 200 OK"
+19: Tunnel closed

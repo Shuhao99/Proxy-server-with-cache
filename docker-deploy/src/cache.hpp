@@ -7,7 +7,8 @@
 #include <map>
 #include <string>
 #include <utility>
-#define defaultMax 100
+#define defaultMax 100 //Cache Size
+
 class cacheResponse {
 public:
   bool isFind;

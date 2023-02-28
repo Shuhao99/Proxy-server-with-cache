@@ -1,0 +1,88 @@
+[proxy server]
+
+- When client close connection before I send response back, log as a NOTE: client close connection, release memories return from current thread
+
+[Exception Gatuantee]
+
+- When I am calling recv() and send() I may get return value '-1', this means error happens when calling these functions
+every time this situation happens, I will log this as ERROR and close fds, release memories and return from current thread.
+
+- Use try catch to catch exeptions, when exception occurs, log the exception content in log as error, close fds, release memories and return from current thread
+
+[Handle external failure]
+
+- When I got malformed request (e.g. missing certain parts like "Host", incorrect host or port), I will log this situation as an ERROR
+then send "400 bad request" to client, close fds, release memories and return from current thread.
+
+- When I got malformed response or when server close connect before I got the full response
+I will log this situation as an ERROR then send "502 bad gateway" to client, close fds, release memories and return from current thread.
+
+- when get response with no "ETag" nor "Last-Modified" log non-cachable because missing certain conditions.
+
+[Cache danger log]
+
+- double converted time zone: 
+
+    need convert all the time to GMT time, and when we already get GMT time and need to get date of string format, we can not use std::gmt(time) to repeatedly convert the time zone, just use the std::localtime() would be fine.
+
+- Cache-Control:
+
+    there would be multiple fileds in Cache-Control, will be separate by ',' or ' '
+
+- argument copy:
+    
+    when using response or request in function as arguments, there would be many copy and waste a lot of space, use const & will avoid wasting space.
+
+
+[Cache synchronization]
+
+    When reading cache response, other thread may write the cache at the same time, so needs to avoid the race condition. 
+    Every time when I am calling the funcion "updateCache()", I will lock the thread. I will update cache contents in this function.
+    Otherwise, If I only need to read content from cache, I will not lock the thread.
+
+
+[Cache Logic]
+
+- cache policy:
+
+    cache  size:100 items(can change it in cache.hpp: #define defalutMax); 
+
+    replacement  policy: last recently used(LRU) whenever store or visit the item, will  prioiritize it, and will drop the least prioritized item when cache size  exceeds the max size; 
+
+    clean expired: after each revalidation, if the response  is 200 OK, will just replace the response in cache, if is 304 not Modified,  will just change the "Date" field of the response in cache. 
+
+- In request headers:
+
+    considered: Cache-Control: max-age, max-stale, min-fresh, no-cache, no-store
+
+    if "Cache-Control:  no-cache": will revalidate every time no matter expires or not
+
+    if "Cache-Control:  no-store": will not store the response of this request
+
+- In response headers: 
+
+    considered:  Cache-Control: max-age, s-maxage, no-cache, private, must-revalidate, no-store
+
+- revalidate: 
+
+    if is stale, will need ETag/Last-modified to send request to server, if the response is 200 OK, will update cache. 
+
+[Automatic Testing]
+
+- I write several shell scripts to execute automatic testing.
+
+- Since I can't find many url that I can access using "HTTP" request, I wrote a web application using flask myself, which is in testcases folder.
+
+- I test several cases including
+
+    - malformed request
+
+    - GET (chunked and without chunked), POST, CONNECT required
+
+    - response with different 'Cache-control' field (max-age, no-store, private, must-revalidate...)
+
+    - reponse with "ETag" and "Last-Modified"
+
+    - requirest with max-age, max-stale, min-fresh, no-cache, no-store
+
+    - test scripts that tests LRU Logic. 

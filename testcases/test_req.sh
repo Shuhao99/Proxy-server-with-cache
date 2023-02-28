@@ -6,16 +6,12 @@ cat test_reqs/req_nostore.txt | netcat $1 12345
 sleep 1
 cat test_reqs/req_nocache.txt | netcat $1 12345
 
-# test request with max-age=2 and max-age=6
-# should say in cache, valid
+# test request with max-age=2
 sleep 1
 cat test_reqs/req_maxage2.txt | netcat $1 12345 
 sleep 2
 # Should say expire
 cat test_reqs/req_maxage2.txt | netcat $1 12345 
-sleep 3
-# Should be in cache valid
-cat test_reqs/req_maxage6.txt | netcat $1 12345 
 
 sleep 1
 

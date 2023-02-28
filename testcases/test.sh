@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# test malformed request
+cat test_reqs/malformed.txt | netcat -w 1 $1 12345 
+sleep 1
+#test cache normal case
+cat test_reqs/malformed2.txt | netcat -w 1 $1 12345 
+sleep 1
+
 #test normal cases max-age=360000
 cat test_reqs/normal.txt | netcat $1 12345 
 sleep 1

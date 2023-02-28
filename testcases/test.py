@@ -45,6 +45,34 @@ def example3():
 
     return response
 
+@app.route('/normal1')
+def example111():
+    # here to change headers
+    headers = {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'max-age=360000',
+        'Content-Length':'10',
+        'ETag': '1234567890abcdef',
+    }
+    response = make_response(jsonify(headers), 200) # here to change status code
+    response.headers = headers # set headers
+
+    return response
+
+@app.route('/normal2')
+def example222():
+    # here to change headers
+    headers = {
+        'Content-Type': 'application/json',
+        'Cache-Control': 'max-age=360000',
+        'Content-Length':'10',
+        'ETag': '1234567890abcdef',
+    }
+    response = make_response(jsonify(headers), 200) # here to change status code
+    response.headers = headers # set headers
+
+    return response
+
 @app.route('/etag')
 def example4():
     # here to change headers

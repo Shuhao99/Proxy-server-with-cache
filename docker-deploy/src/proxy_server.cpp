@@ -2,7 +2,7 @@
 
 Cache proxy_server::cache = Cache();
 pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
-std::ofstream log_file("proxy.log");
+std::ofstream log_file("/var/log/erss/proxy.log");
 
 void proxy_server::run(){
     this->connection_lisn_fd = build_listener(lisn_port);
@@ -148,9 +148,12 @@ void * proxy_server::handle(void *curr_session_){
                 send(require_fd, resp->get_msg().c_str(), resp->get_length(), 0);
             }
             
-            if(resp->get_header().count("Cache-Control"))
+            if(resp->get_header().count("Cache-Control") || req->get_header().count("Cache-Control"))
             {
-                if (resp->get_header()["Cache-Control"].find("no-store") != std::string::npos)
+                if (
+                    resp->get_header()["Cache-Control"].find("no-store") != std::string::npos
+                    || req->get_header()["Cache-Control"].find("no-store") != std::string::npos
+                )
                 {
                     pthread_mutex_lock(&mutex);
                     log_file << curr_session->id << ": not cacheable because it said no-store" << std::endl;
@@ -315,7 +318,10 @@ void proxy_server::update_cache(
     response * resp
 )
 {
+    pthread_mutex_lock(&mutex);
     cache.updateCache(*req, *resp);
+    pthread_mutex_unlock(&mutex);
+
     std::string expire_time = cache.getExpires(*req);
     if (expire_time.empty())
     {
