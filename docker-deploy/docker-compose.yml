@@ -7,3 +7,9 @@ services:
       - ./src:/var/log/erss
     ports:
       - "12345:12345"
+  flask:
+    build: ./flask_app
+    volumes:
+      - ./src:/app/file
+    ports:
+      - "5000:5000" 

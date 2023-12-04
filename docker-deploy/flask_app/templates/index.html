@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- jQuery for AJAX requests -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Log File Display -->
+            <div class="col-md-6">
+                <h2>Proxy Log</h2>
+                <pre id="logContent" style="height: 100vh; overflow-y: scroll;"></pre>
+            </div>
+
+            <!-- Blacklist Manager -->
+            <div class="col-md-6">
+                <h2>Blacklist Manager</h2>
+                <!-- Blacklist Display -->
+                <ul id="blacklistContent" class="list-group mb-3" style="max-height: 90vh; overflow-y: scroll;">
+                    <!-- Blacklist items will be loaded here -->
+                </ul>
+
+                <!-- Add to Blacklist Form -->
+                <form id="addForm" class="form-inline mb-3">
+                    <input type="text" id="addItem" class="form-control mr-2" placeholder="Enter new item" required>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to update blacklist content
+        function updateBlacklist() {
+            $.ajax({
+                url: '/blacklist',
+                type: 'GET',
+                success: function(data) {
+                    var listItems = data.map(function(item) {
+                        return `<li class="list-group-item d-flex justify-content-between align-items-center">
+                                    ${item}
+                                    <button onclick="removeItem('${item}')" class="btn btn-danger btn-sm">Delete</button>
+                                </li>`;
+                    });
+                    $('#blacklistContent').html(listItems.join(''));
+                }
+            });
+        }
+
+        // Function to add a new item to the blacklist
+        $('#addForm').submit(function(event) {
+            event.preventDefault();
+            var itemToAdd = $('#addItem').val();
+            $.ajax({
+                url: '/add_to_blacklist',
+                type: 'POST',
+                data: { item: itemToAdd },
+                success: function(response) {
+                    if (response.success) {
+                        updateBlacklist();
+                        $('#addItem').val(''); // Clear the input field
+                    }
+                }
+            });
+        });
+
+        // Function to remove an item from the blacklist
+        function removeItem(item) {
+            $.ajax({
+                url: '/remove_from_blacklist',
+                type: 'POST',
+                data: { item: item },
+                success: function(response) {
+                    if (response.success) {
+                        updateBlacklist();
+                    }
+                }
+            });
+        }
+
+        $(document).ready(function() {
+            // Function to update log content
+            function updateLog() {
+                $.ajax({
+                    url: '/log',
+                    type: 'GET',
+                    success: function(data) {
+                        $('#logContent').text(data);
+                    }
+                });
+            }
+
+            // Function to update blacklist content
+            updateBlacklist();
+
+            // Call these functions every 2 seconds
+            setInterval(updateLog, 2000);
+            setInterval(updateBlacklist, 2000);
+            
+        });
+    </script>
+</body>
+</html>

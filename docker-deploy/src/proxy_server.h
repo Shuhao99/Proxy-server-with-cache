@@ -50,6 +50,7 @@ public:
     
     static void send_502(const int & client_fd, session * curr_session);
     static void send_400(const int & client_fd, session * curr_session);
+    static void send_404(const int & client_fd, session * curr_session);
 
     static void update_cache(
         const session * curr_session,
