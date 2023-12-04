@@ -81,7 +81,7 @@ void * proxy_server::handle(void *curr_session_){
 
     //print to log
     pthread_mutex_lock(&mutex);
-    log_file << curr_session->id <<" " << curr_session->ip << " requested: \"" << req->get_fist_line() << "\"" << " at " << curr_time;
+    log_file << curr_session->id <<" " << curr_session->ip << " visits: \"" << req->get_host() << "\"" << " at " << curr_time;
     pthread_mutex_unlock(&mutex);
 
     //Connect to remote server.
@@ -117,7 +117,7 @@ void * proxy_server::handle(void *curr_session_){
                 send(require_fd, resp->get_msg().c_str(), resp->get_msg().length() + 1, 0);
                 pthread_mutex_lock(&mutex);
                 log_file << curr_session->id <<
-                ": Responding " << "\"" << resp->get_fist_line() << "\""
+                ": Respond " << "\"" << resp->get_fist_line() << "\""
                 << " to " << curr_session->ip << std::endl;
                 pthread_mutex_unlock(&mutex);
                 delete resp;
@@ -183,14 +183,14 @@ void * proxy_server::handle(void *curr_session_){
             
             //print to log
             pthread_mutex_lock(&mutex);
-            log_file << curr_session->id << ": Responding \"" << resp->get_fist_line() << std::endl;
+            log_file << curr_session->id << ": Respond \"" << resp->get_fist_line() << " to " << curr_session->ip << std::endl;
             pthread_mutex_unlock(&mutex);
             
                 
                 
             //print to log
             pthread_mutex_lock(&mutex);
-            log_file << curr_session->id << ": Responding \"" << resp->get_fist_line() << std::endl;
+            log_file << curr_session->id << ": Respond \"" << resp->get_fist_line() << " to " << curr_session->ip << std::endl;
             pthread_mutex_unlock(&mutex);
             
                 
@@ -208,7 +208,7 @@ void * proxy_server::handle(void *curr_session_){
                 send(require_fd, validate_resp->get_msg().c_str(), validate_resp->get_msg().length() + 1, 0);
 
                 pthread_mutex_lock(&mutex);
-                log_file << curr_session->id << ": Responding \"" << validate_resp->get_fist_line() << " to " << curr_session->ip << std::endl;
+                log_file << curr_session->id << ": Respond \"" << validate_resp->get_fist_line() << " to " << curr_session->ip << std::endl;
                 pthread_mutex_unlock(&mutex);
             }
             else if (validate_resp->get_fist_line().find("304") != std::string::npos){
@@ -216,7 +216,7 @@ void * proxy_server::handle(void *curr_session_){
                 send(require_fd, cache_response.res.get_msg().c_str(), cache_response.res.get_msg().length() + 1, 0);
                 
                 pthread_mutex_lock(&mutex);
-                log_file << curr_session->id << ": Responding \"" 
+                log_file << curr_session->id << ": Respond \"" 
                 << cache_response.res.get_fist_line() <<  " to " << curr_session->ip << std::endl;
                 pthread_mutex_unlock(&mutex);
 
@@ -236,7 +236,7 @@ void * proxy_server::handle(void *curr_session_){
             send(require_fd, cache_response.res.get_msg().c_str(), cache_response.res.get_msg().length() + 1, 0);
                 
             pthread_mutex_lock(&mutex);
-            log_file << curr_session->id << ": Responding \"" << cache_response.res.get_fist_line() << " to " << curr_session->ip << std::endl;
+            log_file << curr_session->id << ": Respond \"" << cache_response.res.get_fist_line() << " to " << curr_session->ip << std::endl;
             pthread_mutex_unlock(&mutex);
         } 
     }
@@ -281,7 +281,7 @@ void * proxy_server::handle(void *curr_session_){
             send(require_fd, resp->get_msg().c_str(), resp->get_msg().length() + 1, 0);
             
             pthread_mutex_lock(&mutex);
-            log_file << curr_session->id << ": Responding " << "\""
+            log_file << curr_session->id << ": Respond " << "\""
                      << resp->get_fist_line() << "\"" << " to " << curr_session->ip << std::endl;
             pthread_mutex_unlock(&mutex);
             
@@ -437,7 +437,7 @@ int proxy_server::make_connection(
     std::string ok = "HTTP/1.1 200 OK\r\n\r\n";
     send(client_fd, ok.c_str(), ok.length() + 1, 0);
     pthread_mutex_lock(&mutex);
-    log_file << curr_session->id << ": Responding \"HTTP/1.1 200 OK\"" << std::endl;
+    log_file << curr_session->id << ": Respond \"HTTP/1.1 200 OK\"" << " to " << curr_session->ip << std::endl;
     pthread_mutex_unlock(&mutex);
 
     fd_set read_fds;
@@ -524,7 +524,7 @@ void proxy_server::send_502(const int & client_fd, session * curr_session)
     const char * bad502 = "HTTP/1.1 502 Bad Gateway\r\n Connection: close\r\n";
     send(client_fd, bad502, sizeof(bad502), 0);
     pthread_mutex_lock(&mutex);
-    log_file << curr_session->id << ": Responding \"HTTP/1.1 502 Bad Gateway\"" << std::endl;
+    log_file << curr_session->id << ": Respond \"HTTP/1.1 502 Bad Gateway\"" << " to " << curr_session->ip << std::endl;
     pthread_mutex_unlock(&mutex);
 }
 
@@ -534,7 +534,7 @@ void proxy_server::send_400(const int & client_fd, session * curr_session)
     const char * bad400 = "HTTP/1.1 400 Bad Request\r\n Connection: close\r\n";
     send(client_fd, bad400, sizeof(bad400), 0);
     pthread_mutex_lock(&mutex);
-    log_file << curr_session->id << ": Responding \"HTTP/1.1 400 Bad Request\"" << std::endl;
+    log_file << curr_session->id << ": Responding \"HTTP/1.1 400 Bad Request\"" << " to " << curr_session->ip << std::endl;
     pthread_mutex_unlock(&mutex);
 }
 
@@ -544,6 +544,6 @@ void proxy_server::send_404(const int & client_fd, session * curr_session)
     const char * bad404 = "HTTP/1.1 400 Not Found\r\n Connection: close\r\n";
     send(client_fd, bad404, sizeof(bad404), 0);
     pthread_mutex_lock(&mutex);
-    log_file << curr_session->id << ": Responding \"HTTP/1.1 404 Not Found\"" << std::endl;
+    log_file << curr_session->id << ": Responding \"HTTP/1.1 404 Not Found\"" << " to " << curr_session->ip << std::endl;
     pthread_mutex_unlock(&mutex);
 }
