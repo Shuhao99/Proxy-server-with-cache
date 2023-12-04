@@ -1,4 +1,3 @@
-# 使用一个基础镜像，例如 Python 官方镜像
 FROM python:3.8-slim
 
 WORKDIR /app
