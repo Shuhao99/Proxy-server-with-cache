@@ -19,4 +19,8 @@ std::string get_first_line(const std::string&message);
 std::map<std::string, std::string> parse_headers(const std::string& message);
 
 std::string get_body(const std::string& httpResponse);
+
+std::string get_header_msg(const std::string& httpResponse);
+
+std::string de_chunked(const std::string& chunked);
 #endif

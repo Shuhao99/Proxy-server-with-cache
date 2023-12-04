@@ -1,0 +1,108 @@
+1: "CONNECT www.wikipedia.org:443 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:10 2023
+1: Requesting "CONNECT www.wikipedia.org:443 HTTP/1.1" from www.wikipedia.org
+1: Responding "HTTP/1.1 200 OK"
+2: "CONNECT www.google.com:443 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:16 2023
+2: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+2: Responding "HTTP/1.1 200 OK"
+2: Tunnel closed
+3: "CONNECT www.google.com:443 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:16 2023
+3: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+3: Responding "HTTP/1.1 200 OK"
+4: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:16 2023
+4: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+4: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+4: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
+4: Responding "HTTP/1.1 200 OK"
+5: "CONNECT www.google.com:443 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:20 2023
+5: Requesting "CONNECT www.google.com:443 HTTP/1.1" from www.google.com
+5: Responding "HTTP/1.1 200 OK"
+6: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:20 2023
+6: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+6: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+6: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
+6: Responding "HTTP/1.1 200 OK"
+7: "CONNECT www.gstatic.com:443 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:20 2023
+7: Requesting "CONNECT www.gstatic.com:443 HTTP/1.1" from www.gstatic.com
+7: Responding "HTTP/1.1 200 OK"
+8: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:21 2023
+8: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+8: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+8: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
+8: Responding "HTTP/1.1 200 OK"
+10: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:21 2023
+9: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:21 2023
+11: "CONNECT i.ytimg.com:443 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:21 2023
+9: Requesting "CONNECT fonts.gstatic.com:443 HTTP/1.1" from fonts.gstatic.com
+9: Responding "HTTP/1.1 200 OK"
+10: Requesting "CONNECT fonts.gstatic.com:443 HTTP/1.1" from fonts.gstatic.com
+10: Responding "HTTP/1.1 200 OK"
+11: Requesting "CONNECT i.ytimg.com:443 HTTP/1.1" from i.ytimg.com
+11: Responding "HTTP/1.1 200 OK"
+12: "CONNECT apis.google.com:443 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:21 2023
+12: Requesting "CONNECT apis.google.com:443 HTTP/1.1" from apis.google.com
+12: Responding "HTTP/1.1 200 OK"
+9: Tunnel closed
+13: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:21 2023
+14: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:21 2023
+13: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+13: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+14: Requesting "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from safebrowsing.googleapis.com
+14: Responding "HTTP/1.1 200 OK"
+13: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
+13: Responding "HTTP/1.1 200 OK"
+15: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:21 2023
+15: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+15: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+15: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
+15: Responding "HTTP/1.1 200 OK"
+14: Tunnel closed
+16: "CONNECT www.youtube.com:443 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:21 2023
+16: Requesting "CONNECT www.youtube.com:443 HTTP/1.1" from www.youtube.com
+16: Responding "HTTP/1.1 200 OK"
+18: "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:22 2023
+17: "CONNECT static.doubleclick.net:443 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:22 2023
+17: Requesting "CONNECT static.doubleclick.net:443 HTTP/1.1" from static.doubleclick.net
+17: Responding "HTTP/1.1 200 OK"
+18: Requesting "CONNECT googleads.g.doubleclick.net:443 HTTP/1.1" from googleads.g.doubleclick.net
+18: Responding "HTTP/1.1 200 OK"
+20: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:23 2023
+19: "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:23 2023
+20: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+20: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+19: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+19: Requesting "POST http://ocsp.pki.goog/gts1c3 HTTP/1.1" from ocsp.pki.goog
+20: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
+20: Responding "HTTP/1.1 200 OK"
+19: Received "HTTP/1.1 200 OK" from ocsp.pki.goog
+19: Responding "HTTP/1.1 200 OK"
+21: "CONNECT fonts.gstatic.com:443 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:23 2023
+21: Requesting "CONNECT fonts.gstatic.com:443 HTTP/1.1" from fonts.gstatic.com
+21: Responding "HTTP/1.1 200 OK"
+22: "CONNECT adservice.google.com:443 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:23 2023
+22: Requesting "CONNECT adservice.google.com:443 HTTP/1.1" from adservice.google.com
+22: Responding "HTTP/1.1 200 OK"
+24: "CONNECT jnn-pa.googleapis.com:443 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:23 2023
+24: Requesting "CONNECT jnn-pa.googleapis.com:443 HTTP/1.1" from jnn-pa.googleapis.com
+24: Responding "HTTP/1.1 200 OK"
+25: "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:24 2023
+25: Requesting "CONNECT safebrowsing.googleapis.com:443 HTTP/1.1" from safebrowsing.googleapis.com
+25: Responding "HTTP/1.1 200 OK"
+25: Tunnel closed
+23: NOTE client close session.
+26: "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:46:30 2023
+26: Requesting "CONNECT incoming.telemetry.mozilla.org:443 HTTP/1.1" from incoming.telemetry.mozilla.org
+26: Responding "HTTP/1.1 200 OK"
+27: "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from 76.36.243.139 @ Mon Dec  4 05:47:04 2023
+27: Requesting "CONNECT mozilla.cloudflare-dns.com:443 HTTP/1.1" from mozilla.cloudflare-dns.com
+27: Responding "HTTP/1.1 200 OK"
+0: Tunnel closed
+3: Tunnel closed
+10: Tunnel closed
+12: Tunnel closed
+7: Tunnel closed
+11: Tunnel closed
+21: Tunnel closed
+17: Tunnel closed
+24: Tunnel closed
+18: Tunnel closed
+22: Tunnel closed

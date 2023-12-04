@@ -28,6 +28,18 @@ std::string get_body(const std::string& httpResponse) {
     return httpBody;
 }
 
+std::string get_header_msg(const std::string& httpResponse){
+    std::string httphead = "";
+    std::string delimiter = "\r\n\r\n";
+    size_t pos = httpResponse.find(delimiter); 
+
+    if (pos != std::string::npos) {
+        httphead = httpResponse.substr(0, pos + delimiter.length());
+    }
+
+    return httphead;
+}
+
 std::string trim(const std::string& str) {
     size_t start = str.find_first_not_of(" \t\r\n");
     size_t end = str.find_last_not_of(" \t\r\n");
@@ -56,4 +68,26 @@ std::map<std::string, std::string> parse_headers(const std::string& message) {
         headers[name] = value;
     }
     return headers;
+}
+
+std::string de_chunked(const std::string& chunked_data){
+    std::string decoded_data;
+    std::size_t i = 0;
+    while (i < chunked_data.size()) {
+        // 解析当前 chunk 的大小
+        std::size_t chunk_size_end = chunked_data.find("\r\n", i);
+        std::string chunk_size_str = chunked_data.substr(i, chunk_size_end - i);
+        std::size_t chunk_size = std::stoul(chunk_size_str, nullptr, 16);
+        i = chunk_size_end + 2;
+        
+        // 如果 chunk 的大小为 0，则表示所有数据都已经处理完毕
+        if (chunk_size == 0) {
+            break;
+        }
+        
+        // 将 chunk 的数据复制到 decoded_data 中
+        decoded_data.append(chunked_data.substr(i, chunk_size));
+        i += chunk_size + 2;
+    }
+    return decoded_data;
 }

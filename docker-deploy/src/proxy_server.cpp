@@ -45,6 +45,7 @@ void * proxy_server::handle(void *curr_session_){
         pthread_mutex_lock(&mutex);
         log_file << curr_session->id <<": ERROR Get request failed." << std::endl;
         pthread_mutex_unlock(&mutex);
+        close(require_fd);
         return NULL;
     }
 
@@ -53,6 +54,7 @@ void * proxy_server::handle(void *curr_session_){
         pthread_mutex_lock(&mutex);
         log_file << curr_session->id <<": NOTE client close session." << std::endl;
         pthread_mutex_unlock(&mutex);
+        close(require_fd);
         return NULL;
     }
     
@@ -115,7 +117,7 @@ void * proxy_server::handle(void *curr_session_){
         
             if (resp->get_fist_line().find("200 OK") == std::string::npos)
             {
-                send(require_fd, resp->get_msg().c_str(), resp->get_length(), 0);
+                send(require_fd, resp->get_msg().c_str(), resp->get_msg().length() + 1, 0);
                 pthread_mutex_lock(&mutex);
                 log_file << curr_session->id <<
                 ": Responding " << "\"" << resp->get_fist_line() << "\""
@@ -145,7 +147,7 @@ void * proxy_server::handle(void *curr_session_){
             }
             else{
                 //send to client
-                send(require_fd, resp->get_msg().c_str(), resp->get_length(), 0);
+                send(require_fd, resp->get_msg().c_str(), resp->get_msg().length() + 1, 0);
             }
             
             if(resp->get_header().count("Cache-Control") || req->get_header().count("Cache-Control"))
@@ -198,7 +200,7 @@ void * proxy_server::handle(void *curr_session_){
             {
                 update_cache(curr_session, req, validate_resp);
 
-                send(require_fd, validate_resp->get_msg().c_str(), validate_resp->get_length(), 0);
+                send(require_fd, validate_resp->get_msg().c_str(), validate_resp->get_msg().length() + 1, 0);
 
                 pthread_mutex_lock(&mutex);
                 log_file << curr_session->id << ": Responding \"" << validate_resp->get_fist_line() << std::endl;
@@ -206,7 +208,7 @@ void * proxy_server::handle(void *curr_session_){
             }
             else if (validate_resp->get_fist_line().find("304") != std::string::npos){
                 
-                send(require_fd, cache_response.res.get_msg().c_str(), cache_response.res.get_length(), 0);
+                send(require_fd, cache_response.res.get_msg().c_str(), cache_response.res.get_msg().length() + 1, 0);
                 
                 pthread_mutex_lock(&mutex);
                 log_file << curr_session->id << ": Responding \"" 
@@ -226,7 +228,7 @@ void * proxy_server::handle(void *curr_session_){
             log_file << curr_session->id << ": in cache, valid" << std::endl;
             pthread_mutex_unlock(&mutex);
 
-            send(require_fd, cache_response.res.get_msg().c_str(), cache_response.res.get_length(), 0);
+            send(require_fd, cache_response.res.get_msg().c_str(), cache_response.res.get_msg().length() + 1, 0);
                 
             pthread_mutex_lock(&mutex);
             log_file << curr_session->id << ": Responding \"" << cache_response.res.get_fist_line() << std::endl;
@@ -263,9 +265,7 @@ void * proxy_server::handle(void *curr_session_){
       
         if (req->get_header().count("Content-Length"))
         {
-            //forward the post request
-            send(remote_fd, req->get_msg().c_str(), req->get_msg().length() + 1, 0);
-            //get response
+            //send(remote_fd, req->get_msg().c_str(), req->get_msg().length() + 1, 0);
             response * resp = get_response(remote_fd, req->get_msg(), req, curr_session);
             
             if (resp == NULL)
@@ -279,7 +279,7 @@ void * proxy_server::handle(void *curr_session_){
                 return NULL;
             }
             //send back response
-            send(require_fd, resp->get_msg().c_str(), resp->get_length(), 0);
+            send(require_fd, resp->get_msg().c_str(), resp->get_msg().length() + 1, 0);
             
             pthread_mutex_lock(&mutex);
             log_file << curr_session->id << ": Responding " << "\""
@@ -368,7 +368,7 @@ response* proxy_server::get_response(
     pthread_mutex_unlock(&mutex);
 
     //Forward request to remote server
-    send(remote_fd, request_msg.c_str(), request_msg.length(), 0);
+    send(remote_fd, request_msg.c_str(), request_msg.length() + 1, 0);
     //receive first part of message
     char buffer[BUFFER_SIZE];
     int rec_len = recv(remote_fd, buffer, sizeof(buffer), 0);
@@ -383,16 +383,20 @@ response* proxy_server::get_response(
 
     int actual_len = resp->get_length();
     //get the whole msg package
-    //while (resp->get_msg().length() < actual_len && rec_len > 0)
-    while ( (resp->get_body_len() + 1) < actual_len && rec_len > 0)
-    {
-        rec_len = recv(remote_fd, buffer, sizeof(buffer), 0);
-        if (rec_len > 0){
-            std::string temp(buffer, rec_len);
-            resp->msg_push_back(temp);
+    if (
+        !resp->get_header().count("Transfer-Encoding") ||
+        ( resp->get_header().count("Transfer-Encoding") && resp->get_header()["Transfer-Encoding"] != "chunked")
+    ){
+        while ( (resp->get_body_len() + 1) < actual_len && rec_len > 0)
+        {
+            rec_len = recv(remote_fd, buffer, sizeof(buffer), 0);
+            if (rec_len > 0){
+                std::string temp(buffer, rec_len);
+                resp->msg_push_back(temp);
+            }
         }
     }
-
+    
     pthread_mutex_lock(&mutex);
     log_file << curr_session->id << ": "
             << "Received \"" << resp->get_fist_line() << "\" from " << req->get_host() << std::endl;
@@ -408,18 +412,28 @@ void proxy_server::forward_chunked_data(
     const session * curr_session)
 {
     std::string first_pkg = resp->get_msg();
-    //send first package
-    send(remote_fd, first_pkg.c_str(), first_pkg.length(), 0);
-
-    char buffer[BUFFER_SIZE];
-    int len = 1;
-    while (len)
+    send(client_fd, first_pkg.c_str(), first_pkg.length(), 0);
+    
+    char buffer[MAX_BUFFER_SIZE] = {0};
+    while (true)
     {
-        len = recv(remote_fd, buffer, sizeof(buffer), 0);
-        if(len > 0){
-            send(client_fd, buffer, len, 0);
+        
+        int len = recv(remote_fd, buffer, sizeof(buffer), 0);
+        if(len <= 0){
+            break;
         }
+
         std::string resp_msg(buffer, len);
+        std::size_t chunk_size = std::stoul(buffer, nullptr, 16);
+        if (chunk_size == 0) {
+            break;
+        }
+        
+        int send_len = send(client_fd, buffer, len, 0);
+        if (send_len <= 0) {
+            break;
+        }
+        
         resp->msg_push_back(resp_msg);
     }
     resp->set_len(resp->get_msg().length() + 1); 
