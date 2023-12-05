@@ -70,6 +70,18 @@ void * proxy_server::handle(void *curr_session_){
         send_400(require_fd, curr_session);
         return NULL;
     }
+
+    //BlackList
+    // Read the blacklist from the file
+    std::vector<std::string> blacklist = read_blacklist("/var/log/erss/blacklist.txt");
+    // Check if the request contains any blacklisted URLs
+    if (is_blacklisted(blacklist, req->get_host())) {
+        pthread_mutex_lock(&mutex);
+        log_file << curr_session->id <<" " << curr_session->ip << "'s request to \"" << req->get_host() << "\"" << " is blocked." << std::endl;
+        pthread_mutex_unlock(&mutex);
+        send_404(require_fd, curr_session);
+        return NULL;
+    }
     
     //get curr time string
     time_t rawtime;
@@ -255,10 +267,6 @@ void * proxy_server::handle(void *curr_session_){
             pthread_mutex_unlock(&mutex);
             return NULL;
         }
-        
-        pthread_mutex_lock(&mutex);
-        log_file << curr_session->id << ": Tunnel closed" << std::endl;
-        pthread_mutex_unlock(&mutex);
     }
     
     else if(req->get_method() == "POST"){            
@@ -516,6 +524,34 @@ response* proxy_server::validate(
 
     delete new_req;
     return new_resp;
+}
+
+// Function to read URLs from blacklist.txt and store them in a vector
+std::vector<std::string> proxy_server::read_blacklist(const std::string& filename) {
+    std::vector<std::string> blacklist;
+    std::ifstream file(filename);
+    std::string line;
+
+    if (file.is_open()) {
+        while (getline(file, line)) {
+            blacklist.push_back(line);
+        }
+        file.close();
+    } else {
+        log_file << "Unable to open file";
+    }
+
+    return blacklist;
+}
+
+// Function to check if the string 'req' contains any of the blacklisted URLs
+bool proxy_server::is_blacklisted(const std::vector<std::string>& blacklist, const std::string& req) {
+    for (const auto& url : blacklist) {
+        if (req.find(url) != std::string::npos) {
+            return true;
+        }
+    }
+    return false;
 }
 
 // When error send 502 bad gateway

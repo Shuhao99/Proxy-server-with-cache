@@ -51,6 +51,8 @@ public:
     static void send_502(const int & client_fd, session * curr_session);
     static void send_400(const int & client_fd, session * curr_session);
     static void send_404(const int & client_fd, session * curr_session);
+    static std::vector<std::string> read_blacklist(const std::string& filename);
+    static bool is_blacklisted(const std::vector<std::string>& blacklist, const std::string& req);
 
     static void update_cache(
         const session * curr_session,
