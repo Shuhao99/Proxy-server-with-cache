@@ -1,284 +1,203 @@
-1 76.36.243.139 visits: "www.youtube.com" at Tue Dec  5 04:29:39 2023
-1: Connecting to www.youtube.com
-1: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-5 76.36.243.139's request to "rr4---sn-hjoj-gq0l.googlevideo.com" is blocked.
-5: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
-3  visits: "i.ytimg.com" at Tue Dec  5 04:29:41 2023
-4  visits: "jnn-pa.googleapis.com" at Tue Dec  5 04:29:41 2023
-7 76.36.243.139 visits: "yt3.ggpht.com" at Tue Dec  5 04:29:41 2023
-6 76.36.243.139's request to "rr4---sn-hjoj-gq0l.googlevideo.com" is blocked.
-6: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
-4: Connecting to jnn-pa.googleapis.com
+2 76.36.243.139 visits: "contile-images.services.mozilla.com" at Fri Dec  8 01:18:24 2023
+0  visits: "start.firefoxchina.cn" at Fri Dec  8 01:18:24 2023
+2: Connecting to contile-images.services.mozilla.com
+2: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+0: Connecting to start.firefoxchina.cn
+0: Respond "HTTP/1.1 200 OK" to 
+3 76.36.243.139 visits: "mozilla.cloudflare-dns.com" at Fri Dec  8 01:18:30 2023
+3: Connecting to mozilla.cloudflare-dns.com
+3: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+4 76.36.243.139 visits: "incoming.telemetry.mozilla.org" at Fri Dec  8 01:18:31 2023
+5 76.36.243.139 visits: "incoming.telemetry.mozilla.org" at Fri Dec  8 01:18:31 2023
+5: Connecting to incoming.telemetry.mozilla.org
+5: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+4: Connecting to incoming.telemetry.mozilla.org
 4: Respond "HTTP/1.1 200 OK" to 
-3: Connecting to i.ytimg.com
-3: Respond "HTTP/1.1 200 OK" to 
-7: Connecting to yt3.ggpht.com
-7: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-9 76.36.243.139's request to "rr4---sn-hjoj-gq0l.googlevideo.com" is blocked.
-9: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
-10 76.36.243.139's request to "rr4---sn-hjoj-gq0l.googlevideo.com" is blocked.
-11 76.36.243.139's request to "rr4---sn-hjoj-gq0l.googlevideo.com" is blocked.
-10: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
-11: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
-13 76.36.243.139's request to "rr4---sn-hjoj-gq0l.googlevideo.com" is blocked.
-13: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
-12 76.36.243.139's request to "rr4---sn-hjoj-gq0l.googlevideo.com" is blocked.
-12: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
-14 76.36.243.139 visits: "encrypted-tbn0.gstatic.com" at Tue Dec  5 04:29:43 2023
-15 76.36.243.139 visits: "encrypted-tbn1.gstatic.com" at Tue Dec  5 04:29:43 2023
-16 76.36.243.139 visits: "www.gstatic.com" at Tue Dec  5 04:29:43 2023
-15: Connecting to encrypted-tbn1.gstatic.com
-15: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-16: Connecting to www.gstatic.com
-16: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-14: Connecting to encrypted-tbn0.gstatic.com
-14: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-17 76.36.243.139 visits: "lh6.googleusercontent.com" at Tue Dec  5 04:29:43 2023
-17: Connecting to lh6.googleusercontent.com
-17: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-21 76.36.243.139 visits: "incoming.telemetry.mozilla.org" at Tue Dec  5 04:29:46 2023
-20 76.36.243.139 visits: "incoming.telemetry.mozilla.org" at Tue Dec  5 04:29:46 2023
-21: Connecting to incoming.telemetry.mozilla.org
-20: Connecting to incoming.telemetry.mozilla.org
-21: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+7 76.36.243.139's request to "www.youtube.com" is blocked.
+7: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
+8 76.36.243.139 visits: "www.amazon.com" at Fri Dec  8 01:18:58 2023
+8: Connecting to www.amazon.com
+8: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+13 76.36.243.139 visits: "m.media-amazon.com" at Fri Dec  8 01:18:58 2023
+13: Connecting to m.media-amazon.com
+13: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+11 76.36.243.139 visits: "images-na.ssl-images-amazon.com" at Fri Dec  8 01:18:58 2023
+11: Connecting to images-na.ssl-images-amazon.com
+11: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+15  visits: "aax-us-iad.amazon.com" at Fri Dec  8 01:18:58 2023
+14  visits: "aax-us-iad.amazon.com" at Fri Dec  8 01:18:58 2023
+16  visits: "aax-us-iad.amazon.com" at Fri Dec  8 01:18:58 2023
+18 76.36.243.139 visits: "aan.amazon.com" at Fri Dec  8 01:18:58 2023
+15: Connecting to aax-us-iad.amazon.com
+15: Respond "HTTP/1.1 200 OK" to 
+14: Connecting to aax-us-iad.amazon.com
+16: Connecting to aax-us-iad.amazon.com
+16: Respond "HTTP/1.1 200 OK" to 
+14: Respond "HTTP/1.1 200 OK" to 
+18: Connecting to aan.amazon.com
+18: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+20 76.36.243.139 visits: "aax-us-east-retail-direct.amazon.com" at Fri Dec  8 01:18:59 2023
+20: Connecting to aax-us-east-retail-direct.amazon.com
 20: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-22 76.36.243.139 visits: "contile-images.services.mozilla.com" at Tue Dec  5 04:29:46 2023
-22: Connecting to contile-images.services.mozilla.com
+22 76.36.243.139 visits: "completion.amazon.com" at Fri Dec  8 01:18:59 2023
+24 76.36.243.139 visits: "unagi-na.amazon.com" at Fri Dec  8 01:18:59 2023
+23 76.36.243.139 visits: "p3epspumangb5dvijf52er7wdi.appsync-api.us-east-1.amazonaws.com" at Fri Dec  8 01:18:59 2023
+27 76.36.243.139 visits: "unagi-na.amazon.com" at Fri Dec  8 01:18:59 2023
+25 76.36.243.139 visits: "metrics.media-amazon.com" at Fri Dec  8 01:18:59 2023
+26 76.36.243.139 visits: "unagi-na.amazon.com" at Fri Dec  8 01:18:59 2023
+22: Connecting to completion.amazon.com
 22: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-24 76.36.243.139 visits: "play.google.com" at Tue Dec  5 04:29:46 2023
-24: Connecting to play.google.com
-24: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-23 76.36.243.139 visits: "play.google.com" at Tue Dec  5 04:29:46 2023
-23: Connecting to play.google.com
+28 76.36.243.139 visits: "cloudfront.xp-assets.aiv-cdn.net" at Fri Dec  8 01:18:59 2023
+29 76.36.243.139 visits: "d23tl967axkois.cloudfront.net" at Fri Dec  8 01:18:59 2023
+30 76.36.243.139 visits: "atv-ps.amazon.com" at Fri Dec  8 01:18:59 2023
+23: Connecting to p3epspumangb5dvijf52er7wdi.appsync-api.us-east-1.amazonaws.com
 23: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-25 76.36.243.139's request to "rr4---sn-p5qs7nzy.googlevideo.com" is blocked.
-25: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
-26 76.36.243.139's request to "rr4---sn-p5qs7nzy.googlevideo.com" is blocked.
-26: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
-27 76.36.243.139's request to "rr4---sn-p5qs7nzy.googlevideo.com" is blocked.
-27: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
-28 76.36.243.139 visits: "mozilla.cloudflare-dns.com" at Tue Dec  5 04:29:51 2023
-28: Connecting to mozilla.cloudflare-dns.com
+24: Connecting to unagi-na.amazon.com
+24: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+27: Connecting to unagi-na.amazon.com
+27: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+26: Connecting to unagi-na.amazon.com
+26: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+31 76.36.243.139 visits: "player.stats.live-video.net" at Fri Dec  8 01:18:59 2023
+25: Connecting to metrics.media-amazon.com
+25: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+28: Connecting to cloudfront.xp-assets.aiv-cdn.net
 28: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-29 76.36.243.139's request to "rr4---sn-p5qs7nzy.googlevideo.com" is blocked.
-29: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
-32 76.36.243.139's request to "www.amazon.com" is blocked.
-32: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
-33 76.36.243.139 visits: "www.amazon.com" at Tue Dec  5 04:30:10 2023
-33: Connecting to www.amazon.com
-33: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-34 76.36.243.139 visits: "m.media-amazon.com" at Tue Dec  5 04:30:10 2023
-34: Connecting to m.media-amazon.com
+29: Connecting to d23tl967axkois.cloudfront.net
+29: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+32  visits: "unagi-na.amazon.com" at Fri Dec  8 01:18:59 2023
+33 76.36.243.139 visits: "unagi-na.amazon.com" at Fri Dec  8 01:18:59 2023
+34 76.36.243.139 visits: "4b64d6fa612f.us-east-1.playback.live-video.net" at Fri Dec  8 01:18:59 2023
+30: Connecting to atv-ps.amazon.com
+30: Respond "HTTP/1.1 200 OK" to 
+34: Connecting to 4b64d6fa612f.us-east-1.playback.live-video.net
 34: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-36 76.36.243.139 visits: "images-na.ssl-images-amazon.com" at Tue Dec  5 04:30:11 2023
-36: Connecting to images-na.ssl-images-amazon.com
+33: Connecting to unagi-na.amazon.com
+33: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+32: Connecting to unagi-na.amazon.com
+32: Respond "HTTP/1.1 200 OK" to 
+31: Connecting to player.stats.live-video.net
+31: Respond "HTTP/1.1 200 OK" to 
+35 76.36.243.139 visits: "atv-ps.amazon.com" at Fri Dec  8 01:18:59 2023
+35: Connecting to atv-ps.amazon.com
+35: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+36 76.36.243.139 visits: "video-weaver.atl01.hls.live-video.net" at Fri Dec  8 01:18:59 2023
+36: Connecting to video-weaver.atl01.hls.live-video.net
 36: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-36: Tunnel closed
-38 76.36.243.139 visits: "images-na.ssl-images-amazon.com" at Tue Dec  5 04:30:11 2023
-39 76.36.243.139 visits: "aax-us-iad.amazon.com" at Tue Dec  5 04:30:11 2023
-38: Connecting to images-na.ssl-images-amazon.com
-38: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-38: Tunnel closed
-40 76.36.243.139 visits: "images-na.ssl-images-amazon.com" at Tue Dec  5 04:30:11 2023
-39: Connecting to aax-us-iad.amazon.com
+39 76.36.243.139 visits: "unagi.amazon.com" at Fri Dec  8 01:18:59 2023
+38 76.36.243.139 visits: "fls-na.amazon.com" at Fri Dec  8 01:18:59 2023
+9  visits: "m.media-amazon.com" at Fri Dec  8 01:18:59 2023
+9: Connecting to m.media-amazon.com
+9: Respond "HTTP/1.1 200 OK" to 
+40 76.36.243.139 visits: "unagi-na.amazon.com" at Fri Dec  8 01:18:59 2023
+39: Connecting to unagi.amazon.com
 39: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-40: Connecting to images-na.ssl-images-amazon.com
+38: Connecting to fls-na.amazon.com
+38: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+40: Connecting to unagi-na.amazon.com
 40: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-41 76.36.243.139 visits: "aax-us-iad.amazon.com" at Tue Dec  5 04:30:11 2023
-41: Connecting to aax-us-iad.amazon.com
-41: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-42 76.36.243.139 visits: "aax-us-iad.amazon.com" at Tue Dec  5 04:30:11 2023
-43 76.36.243.139 visits: "aax-us-iad.amazon.com" at Tue Dec  5 04:30:11 2023
-42: Connecting to aax-us-iad.amazon.com
-43: Connecting to aax-us-iad.amazon.com
-43: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+42 76.36.243.139 visits: "cloudfront.xp-assets.aiv-cdn.net" at Fri Dec  8 01:18:59 2023
+42: Connecting to cloudfront.xp-assets.aiv-cdn.net
 42: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-47 76.36.243.139 visits: "aan.amazon.com" at Tue Dec  5 04:30:11 2023
-46 76.36.243.139 visits: "aan.amazon.com" at Tue Dec  5 04:30:11 2023
-47: Connecting to aan.amazon.com
-47: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-46: Connecting to aan.amazon.com
+43 76.36.243.139 visits: "ocsp.r2m01.amazontrust.com" at Fri Dec  8 01:19:00 2023
+44 76.36.243.139 visits: "s.amazon-adsystem.com" at Fri Dec  8 01:19:00 2023
+43: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+44: Connecting to s.amazon-adsystem.com
+44: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+46 76.36.243.139 visits: "www.imdb.com" at Fri Dec  8 01:19:00 2023
+47 76.36.243.139 visits: "cookie-matching.mediarithmics.com" at Fri Dec  8 01:19:00 2023
+46: Connecting to www.imdb.com
 46: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-49 76.36.243.139 visits: "fls-na.amazon.com" at Tue Dec  5 04:30:11 2023
-48 76.36.243.139 visits: "unagi.amazon.com" at Tue Dec  5 04:30:11 2023
-48: Connecting to unagi.amazon.com
+47: Connecting to cookie-matching.mediarithmics.com
+47: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+48 76.36.243.139 visits: "atv-ps.amazon.com" at Fri Dec  8 01:19:00 2023
+48: Connecting to atv-ps.amazon.com
 48: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-49: Connecting to fls-na.amazon.com
+49 76.36.243.139 visits: "api.us-east-1.aiv-delivery.net" at Fri Dec  8 01:19:00 2023
+49: Connecting to api.us-east-1.aiv-delivery.net
 49: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-37 76.36.243.139 visits: "m.media-amazon.com" at Tue Dec  5 04:30:11 2023
-37: Connecting to m.media-amazon.com
-37: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-50 76.36.243.139 visits: "completion.amazon.com" at Tue Dec  5 04:30:11 2023
-50: Connecting to completion.amazon.com
-50: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-52 76.36.243.139 visits: "aax-us-east-retail-direct.amazon.com" at Tue Dec  5 04:30:11 2023
-53 76.36.243.139 visits: "unagi-na.amazon.com" at Tue Dec  5 04:30:11 2023
-55 76.36.243.139 visits: "unagi-na.amazon.com" at Tue Dec  5 04:30:11 2023
-52: Connecting to aax-us-east-retail-direct.amazon.com
-52: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-56 76.36.243.139 visits: "aax-us-east-retail-direct.amazon.com" at Tue Dec  5 04:30:11 2023
-53: Connecting to unagi-na.amazon.com
+51 76.36.243.139 visits: "ocsp.r2m02.amazontrust.com" at Fri Dec  8 01:19:01 2023
+51: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+53 76.36.243.139 visits: "ipv6.unagi-na.amazon.com" at Fri Dec  8 01:19:01 2023
+53: Connecting to ipv6.unagi-na.amazon.com
 53: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-55: Connecting to unagi-na.amazon.com
-55: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-57 76.36.243.139 visits: "metrics.media-amazon.com" at Tue Dec  5 04:30:11 2023
-58 76.36.243.139 visits: "p3epspumangb5dvijf52er7wdi.appsync-api.us-east-1.amazonaws.com" at Tue Dec  5 04:30:11 2023
-54 76.36.243.139 visits: "unagi-na.amazon.com" at Tue Dec  5 04:30:11 2023
-60 76.36.243.139 visits: "d23tl967axkois.cloudfront.net" at Tue Dec  5 04:30:11 2023
-59 76.36.243.139 visits: "s.amazon-adsystem.com" at Tue Dec  5 04:30:11 2023
-56: Connecting to aax-us-east-retail-direct.amazon.com
+56 76.36.243.139 visits: "unagi.amazon.com" at Fri Dec  8 01:19:02 2023
+56: Connecting to unagi.amazon.com
 56: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-58: Connecting to p3epspumangb5dvijf52er7wdi.appsync-api.us-east-1.amazonaws.com
-58: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-59: Connecting to s.amazon-adsystem.com
-59: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-60: Connecting to d23tl967axkois.cloudfront.net
-60: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-57: Connecting to metrics.media-amazon.com
+57 76.36.243.139 visits: "abehh26aaaaaaaamfznl6ca7gtd4r.otte.live.cf.ww.aiv-cdn.net" at Fri Dec  8 01:19:02 2023
+57: Connecting to abehh26aaaaaaaamfznl6ca7gtd4r.otte.live.cf.ww.aiv-cdn.net
 57: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-54: Connecting to unagi-na.amazon.com
-54: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-63 76.36.243.139 visits: "unagi-na.amazon.com" at Tue Dec  5 04:30:11 2023
-64 76.36.243.139 visits: "unagi-na.amazon.com" at Tue Dec  5 04:30:11 2023
-65 76.36.243.139 visits: "player.stats.live-video.net" at Tue Dec  5 04:30:11 2023
-66 76.36.243.139 visits: "4b64d6fa612f.us-east-1.playback.live-video.net" at Tue Dec  5 04:30:11 2023
-63: Connecting to unagi-na.amazon.com
-63: Respond "HTTP/1.1 200 OK" to 
-64: Connecting to unagi-na.amazon.com
-64: Respond "HTTP/1.1 200 OK" to 
-66: Connecting to 4b64d6fa612f.us-east-1.playback.live-video.net
-66: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-65: Connecting to player.stats.live-video.net
+59 76.36.243.139 visits: "abehh26aaaaaaaamfznl6ca7gtd4r.otte.live.cf.ww.aiv-cdn.net" at Fri Dec  8 01:19:03 2023
+59: Connecting to abehh26aaaaaaaamfznl6ca7gtd4r.otte.live.cf.ww.aiv-cdn.net
+59: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+55 76.36.243.139 visits: "atv-ps.amazon.com" at Fri Dec  8 01:19:04 2023
+55: Connecting to atv-ps.amazon.com
+55: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+63 76.36.243.139 visits: "prod.us-east-1.sonar.prime-video.amazon.dev" at Fri Dec  8 01:19:04 2023
+63: Connecting to prod.us-east-1.sonar.prime-video.amazon.dev
+63: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+64 76.36.243.139 visits: "ocsp.r2m02.amazontrust.com" at Fri Dec  8 01:19:04 2023
+64: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+60 76.36.243.139 visits: "abehh26aaaaaaaamfznl6ca7gtd4r.otte.live.cf.ww.aiv-cdn.net" at Fri Dec  8 01:19:08 2023
+60: Connecting to abehh26aaaaaaaamfznl6ca7gtd4r.otte.live.cf.ww.aiv-cdn.net
+60: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+65 76.36.243.139 visits: "unagi.amazon.com" at Fri Dec  8 01:19:08 2023
+65: Connecting to unagi.amazon.com
 65: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-71 76.36.243.139 visits: "unagi-na.amazon.com" at Tue Dec  5 04:30:12 2023
-72 76.36.243.139 visits: "unagi-na.amazon.com" at Tue Dec  5 04:30:12 2023
-72: Connecting to unagi-na.amazon.com
-72: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-71: Connecting to unagi-na.amazon.com
-71: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-73 76.36.243.139 visits: "cookie-matching.mediarithmics.com" at Tue Dec  5 04:30:12 2023
-0  visits: "aax-us-iad.amazon.com" at Tue Dec  5 04:30:12 2023
-0: Connecting to aax-us-iad.amazon.com
-0: Respond "HTTP/1.1 200 OK" to 
-75 76.36.243.139 visits: "video-weaver.ord03.hls.live-video.net" at Tue Dec  5 04:30:12 2023
-73: Connecting to cookie-matching.mediarithmics.com
+67 76.36.243.139 visits: "www.youtube.com" at Fri Dec  8 01:19:17 2023
+67: Connecting to www.youtube.com
+67: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+68 76.36.243.139 visits: "i.ytimg.com" at Fri Dec  8 01:19:17 2023
+68: Connecting to i.ytimg.com
+68: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+73 76.36.243.139 visits: "rr4---sn-npoe7ns6.googlevideo.com" at Fri Dec  8 01:19:18 2023
+74 76.36.243.139 visits: "rr4---sn-npoe7ns6.googlevideo.com" at Fri Dec  8 01:19:18 2023
+74: Connecting to rr4---sn-npoe7ns6.googlevideo.com
+74: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+73: Connecting to rr4---sn-npoe7ns6.googlevideo.com
 73: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-75: Connecting to video-weaver.ord03.hls.live-video.net
+77 76.36.243.139 visits: "www.google.com" at Fri Dec  8 01:19:18 2023
+75 76.36.243.139 visits: "yt3.ggpht.com" at Fri Dec  8 01:19:18 2023
+75: Connecting to yt3.ggpht.com
 75: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-77 76.36.243.139 visits: "ocsp.r2m01.amazontrust.com" at Tue Dec  5 04:30:12 2023
+77: Connecting to www.google.com
 77: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-75: Tunnel closed
-85 76.36.243.139 visits: "video-weaver.jfk04.hls.live-video.net" at Tue Dec  5 04:30:22 2023
-85: Connecting to video-weaver.jfk04.hls.live-video.net
+72 76.36.243.139 visits: "rr4---sn-npoe7ns6.googlevideo.com" at Fri Dec  8 01:19:19 2023
+71 76.36.243.139 visits: "rr4---sn-npoe7ns6.googlevideo.com" at Fri Dec  8 01:19:19 2023
+82 76.36.243.139 visits: "rr3---sn-hjoj-gq0l.googlevideo.com" at Fri Dec  8 01:19:19 2023
+83 76.36.243.139 visits: "rr3---sn-hjoj-gq0l.googlevideo.com" at Fri Dec  8 01:19:19 2023
+84 76.36.243.139 visits: "jnn-pa.googleapis.com" at Fri Dec  8 01:19:19 2023
+83: Connecting to rr3---sn-hjoj-gq0l.googlevideo.com
+83: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+82: Connecting to rr3---sn-hjoj-gq0l.googlevideo.com
+82: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+84: Connecting to jnn-pa.googleapis.com
+84: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+72: Connecting to rr4---sn-npoe7ns6.googlevideo.com
+72: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+71: Connecting to rr4---sn-npoe7ns6.googlevideo.com
+71: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+87 76.36.243.139 visits: "rr2---sn-hjoj-gq0l.googlevideo.com" at Fri Dec  8 01:19:20 2023
+88 76.36.243.139 visits: "rr2---sn-hjoj-gq0l.googlevideo.com" at Fri Dec  8 01:19:20 2023
+87: Connecting to rr2---sn-hjoj-gq0l.googlevideo.com
+87: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+88: Connecting to rr2---sn-hjoj-gq0l.googlevideo.com
+88: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+86 76.36.243.139 visits: "rr4---sn-npoe7ns6.googlevideo.com" at Fri Dec  8 01:19:20 2023
+85 76.36.243.139 visits: "rr4---sn-npoe7ns6.googlevideo.com" at Fri Dec  8 01:19:20 2023
+78 76.36.243.139 visits: "rr3---sn-hjoj-gq0l.googlevideo.com" at Fri Dec  8 01:19:20 2023
+80 76.36.243.139 visits: "rr3---sn-hjoj-gq0l.googlevideo.com" at Fri Dec  8 01:19:20 2023
+80: Connecting to rr3---sn-hjoj-gq0l.googlevideo.com
+80: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+78: Connecting to rr3---sn-hjoj-gq0l.googlevideo.com
+78: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+86: Connecting to rr4---sn-npoe7ns6.googlevideo.com
+86: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+85: Connecting to rr4---sn-npoe7ns6.googlevideo.com
 85: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-87 76.36.243.139's request to "ocsp.r2m01.amazontrust.com" is blocked.
-87: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
-85: Tunnel closed
-79 76.36.243.139's request to "completion.amazon.com" is blocked.
-79: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
-91 76.36.243.139's request to "cloudfront-labs.amazonaws.com" is blocked.
-91: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
-94 76.36.243.139's request to "unagi.amazon.com" is blocked.
-94: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
-96 76.36.243.139's request to "www.baidu.com" is blocked.
-96: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
-97 76.36.243.139's request to "www.baidu.com" is blocked.
-97: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
-98 76.36.243.139's request to "www.baidu.com" is blocked.
-98: Responding "HTTP/1.1 404 Not Found" to 76.36.243.139
-104 76.36.243.139 visits: "www.baidu.com" at Tue Dec  5 04:31:13 2023
-104: Connecting to www.baidu.com
-104: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-103 76.36.243.139 visits: "www.baidu.com" at Tue Dec  5 04:31:14 2023
-106 76.36.243.139 visits: "www.baidu.com" at Tue Dec  5 04:31:14 2023
-107 76.36.243.139 visits: "www.baidu.com" at Tue Dec  5 04:31:14 2023
-105 76.36.243.139 visits: "www.baidu.com" at Tue Dec  5 04:31:14 2023
-103: Connecting to www.baidu.com
-103: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-106: Connecting to www.baidu.com
-106: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-105: Connecting to www.baidu.com
-105: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-107: Connecting to www.baidu.com
-107: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-109 76.36.243.139 visits: "pss.bdstatic.com" at Tue Dec  5 04:31:15 2023
-110 76.36.243.139 visits: "t10.baidu.com" at Tue Dec  5 04:31:15 2023
-115 76.36.243.139 visits: "t11.baidu.com" at Tue Dec  5 04:31:15 2023
-112 76.36.243.139 visits: "t11.baidu.com" at Tue Dec  5 04:31:15 2023
-117 76.36.243.139 visits: "t11.baidu.com" at Tue Dec  5 04:31:15 2023
-118 76.36.243.139 visits: "t11.baidu.com" at Tue Dec  5 04:31:15 2023
-120 76.36.243.139 visits: "pss.bdstatic.com" at Tue Dec  5 04:31:15 2023
-113 76.36.243.139 visits: "t12.baidu.com" at Tue Dec  5 04:31:15 2023
-116 76.36.243.139 visits: "t12.baidu.com" at Tue Dec  5 04:31:15 2023
-111 76.36.243.139 visits: "pss.bdstatic.com" at Tue Dec  5 04:31:15 2023
-114 76.36.243.139 visits: "t10.baidu.com" at Tue Dec  5 04:31:15 2023
-119 76.36.243.139 visits: "tukuimg.bdstatic.com" at Tue Dec  5 04:31:15 2023
-124 76.36.243.139 visits: "gimg4.baidu.com" at Tue Dec  5 04:31:15 2023
-122 76.36.243.139 visits: "pss.bdstatic.com" at Tue Dec  5 04:31:15 2023
-123 76.36.243.139 visits: "pss.bdstatic.com" at Tue Dec  5 04:31:15 2023
-125 76.36.243.139 visits: "pss.bdstatic.com" at Tue Dec  5 04:31:15 2023
-126 76.36.243.139 visits: "pss.bdstatic.com" at Tue Dec  5 04:31:15 2023
-121 76.36.243.139 visits: "f7.baidu.com" at Tue Dec  5 04:31:15 2023
-127 76.36.243.139 visits: "hectorstatic.baidu.com" at Tue Dec  5 04:31:15 2023
-128  visits: "fanyiapp.cdn.bcebos.com" at Tue Dec  5 04:31:15 2023
-129 76.36.243.139 visits: "t9.baidu.com" at Tue Dec  5 04:31:15 2023
-130 76.36.243.139 visits: "gimg3.baidu.com" at Tue Dec  5 04:31:15 2023
-131 76.36.243.139 visits: "gimg4.baidu.com" at Tue Dec  5 04:31:15 2023
-136 76.36.243.139 visits: "t13.baidu.com" at Tue Dec  5 04:31:15 2023
-133 76.36.243.139 visits: "t13.baidu.com" at Tue Dec  5 04:31:15 2023
-134 76.36.243.139 visits: "gimg4.baidu.com" at Tue Dec  5 04:31:15 2023
-135 76.36.243.139 visits: "t14.baidu.com" at Tue Dec  5 04:31:15 2023
-132 76.36.243.139 visits: "gimg3.baidu.com" at Tue Dec  5 04:31:15 2023
-137 76.36.243.139 visits: "t15.baidu.com" at Tue Dec  5 04:31:15 2023
-138 76.36.243.139 visits: "t13.baidu.com" at Tue Dec  5 04:31:15 2023
-139 76.36.243.139 visits: "t13.baidu.com" at Tue Dec  5 04:31:15 2023
-141 76.36.243.139 visits: "t9.baidu.com" at Tue Dec  5 04:31:15 2023
-138: Connecting to t13.baidu.com
-139: Connecting to t13.baidu.com
-139: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-133: Connecting to t13.baidu.com
-138: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-136: Connecting to t13.baidu.com
-136: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-133: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-0: Connecting to f7.baidu.com
-0: Respond "HTTP/1.1 200 OK" to 
-135: Connecting to t14.baidu.com
-135: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-137: Connecting to t15.baidu.com
-137: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-0: Connecting to t12.baidu.com
-0: Respond "HTTP/1.1 200 OK" to 
-0: Connecting to t12.baidu.com
-0: Respond "HTTP/1.1 200 OK" to 
-131: Connecting to gimg4.baidu.com
-131: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-134: Connecting to gimg4.baidu.com
-134: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-124: Connecting to gimg4.baidu.com
-124: Respond "HTTP/1.1 200 OK" to 
-136: Tunnel closed
-139: Tunnel closed
-133: Tunnel closed
-0: Connecting to tukuimg.bdstatic.com
-0: Respond "HTTP/1.1 200 OK" to 
-127: Connecting to hectorstatic.baidu.com
-127: Respond "HTTP/1.1 200 OK" to 
-128: Connecting to fanyiapp.cdn.bcebos.com
-128: Respond "HTTP/1.1 200 OK" to 
-134: Tunnel closed
-0: Tunnel closed
-141: Connecting to t9.baidu.com
-141: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-0: Tunnel closed
-129: Connecting to t9.baidu.com
-129: Respond "HTTP/1.1 200 OK" to 76.36.243.139
-0: Connecting to t11.baidu.com
-0: Respond "HTTP/1.1 200 OK" to 
-0: Connecting to t11.baidu.com
-0: Respond "HTTP/1.1 200 OK" to 
-0: Connecting to t10.baidu.com
-0: Respond "HTTP/1.1 200 OK" to 
-0: Connecting to t11.baidu.com
-0: Respond "HTTP/1.1 200 OK" to 
-16: Connecting to t11.baidu.com
+96 76.36.243.139 visits: "rr3---sn-hjoj-gq0l.googlevideo.com" at Fri Dec  8 01:19:39 2023
+99 76.36.243.139 visits: "rr3---sn-hjoj-gq0l.googlevideo.com" at Fri Dec  8 01:19:39 2023
+99: Connecting to rr3---sn-hjoj-gq0l.googlevideo.com
+99: Respond "HTTP/1.1 200 OK" to 76.36.243.139
+96: Connecting to rr3---sn-hjoj-gq0l.googlevideo.com
+96: Respond "HTTP/1.1 200 OK" to 76.36.243.139

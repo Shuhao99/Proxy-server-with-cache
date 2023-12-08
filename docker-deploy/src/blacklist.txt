@@ -1,3 +1,2 @@
-googlevideo
-amazon
-google
+baidu
+youtube

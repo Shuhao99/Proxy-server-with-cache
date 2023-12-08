@@ -529,16 +529,23 @@ response* proxy_server::validate(
 // Function to read URLs from blacklist.txt and store them in a vector
 std::vector<std::string> proxy_server::read_blacklist(const std::string& filename) {
     std::vector<std::string> blacklist;
-    std::ifstream file(filename);
+    std::ifstream file;
     std::string line;
 
-    if (file.is_open()) {
+    try {
+        file.open(filename);
+        if (!file.is_open()) {
+            throw std::runtime_error("Unable to open file: " + filename);
+        }
+
         while (getline(file, line)) {
             blacklist.push_back(line);
         }
         file.close();
-    } else {
-        log_file << "Unable to open file";
+    } catch (const std::ifstream::failure& e) {
+        log_file << "File I/O error occurred: " << e.what();
+    } catch (const std::exception& e) {
+        log_file << "Error: " << e.what();
     }
 
     return blacklist;
