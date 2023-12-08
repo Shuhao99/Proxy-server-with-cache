@@ -4,7 +4,7 @@ entry docker-deploy folder. You can either ran
 ```
 sudo docker-compose up
 ```
-or directly run the main file in ```/src``` directory
+Ensure you permit the ```docker-deploy/src/run.sh``` file before running the command above. You can give permission using the command ```chmod 777```.
 
 
 ## Automatic Testing
